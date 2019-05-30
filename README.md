@@ -1,2 +1,3 @@
 # CryptChat
-Personal project developed in the last year of high school (Jun 2017)
+Personal project developed in my last yeat of high school (Jun 2017).
+At the time I did not have much experience in OOP & Java, that is why I'm deciding to refactor the code and also make some improvements.
