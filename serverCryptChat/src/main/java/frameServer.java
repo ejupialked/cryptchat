@@ -2,7 +2,6 @@
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -16,8 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -103,7 +100,7 @@ public class frameServer extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 51, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("lockk.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("src/main/resources/lockk.png")); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 190, 140));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -114,7 +111,7 @@ public class frameServer extends javax.swing.JFrame {
         jSeparator1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 70, 10));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("Webp.net-resizeimage.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("src/main/resources/Webp.net-resizeimage.png")); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, 40));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
@@ -125,7 +122,7 @@ public class frameServer extends javax.swing.JFrame {
         btn_connetti.setBackground(new java.awt.Color(45, 92, 107));
         btn_connetti.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btn_connetti.setForeground(new java.awt.Color(255, 255, 255));
-        btn_connetti.setIcon(new javax.swing.ImageIcon("server.png")); // NOI18N
+        btn_connetti.setIcon(new javax.swing.ImageIcon("src/main/resources/server.png")); // NOI18N
         btn_connetti.setText("Avvia Server");
         btn_connetti.setToolTipText("");
         btn_connetti.setActionCommand("btn_connetti");
@@ -298,7 +295,7 @@ public class frameServer extends javax.swing.JFrame {
         btn_decripta.setBackground(new java.awt.Color(45, 92, 107));
         btn_decripta.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btn_decripta.setForeground(new java.awt.Color(255, 255, 255));
-        btn_decripta.setIcon(new javax.swing.ImageIcon("unlock1.png")); // NOI18N
+        btn_decripta.setIcon(new javax.swing.ImageIcon("src/main/resources/unlock1.png")); // NOI18N
         btn_decripta.setText(" Decripta ");
         btn_decripta.setToolTipText("");
         btn_decripta.setActionCommand("btn_connetti");
@@ -311,7 +308,7 @@ public class frameServer extends javax.swing.JFrame {
         });
         jPanel3.add(btn_decripta, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 150, 50));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("transparent_text_effect--1-.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("src/main/resources/transparent_text_effect--1-.png")); // NOI18N
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -359,7 +356,7 @@ public class frameServer extends javax.swing.JFrame {
         btn_cripta.setBackground(new java.awt.Color(45, 92, 107));
         btn_cripta.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btn_cripta.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cripta.setIcon(new javax.swing.ImageIcon("lucchetto.png")); // NOI18N
+        btn_cripta.setIcon(new javax.swing.ImageIcon("src/main/resources/lucchetto.png")); // NOI18N
         btn_cripta.setText("Cripta  Messaggio");
         btn_cripta.setToolTipText("");
         btn_cripta.setActionCommand("btn_connetti");
@@ -375,7 +372,7 @@ public class frameServer extends javax.swing.JFrame {
         btn_invia.setBackground(new java.awt.Color(45, 92, 107));
         btn_invia.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btn_invia.setForeground(new java.awt.Color(255, 255, 255));
-        btn_invia.setIcon(new javax.swing.ImageIcon("send.png")); // NOI18N
+        btn_invia.setIcon(new javax.swing.ImageIcon("src/main/resources/send.png")); // NOI18N
         btn_invia.setText("Invia Messaggio");
         btn_invia.setToolTipText("");
         btn_invia.setActionCommand("btn_connetti");
@@ -389,7 +386,7 @@ public class frameServer extends javax.swing.JFrame {
         jPanel1.add(btn_invia, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 190, 40));
 
         btn_cancella.setBackground(new java.awt.Color(32, 32, 95));
-        btn_cancella.setIcon(new javax.swing.ImageIcon("cancel.png")); // NOI18N
+        btn_cancella.setIcon(new javax.swing.ImageIcon("src/main/resources/cancel.png")); // NOI18N
         btn_cancella.setBorder(null);
         btn_cancella.setBorderPainted(false);
         btn_cancella.addActionListener(new java.awt.event.ActionListener() {
@@ -402,7 +399,7 @@ public class frameServer extends javax.swing.JFrame {
         btn_chiave.setBackground(new java.awt.Color(45, 92, 107));
         btn_chiave.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btn_chiave.setForeground(new java.awt.Color(255, 255, 255));
-        btn_chiave.setIcon(new javax.swing.ImageIcon("chiave.png")); // NOI18N
+        btn_chiave.setIcon(new javax.swing.ImageIcon("src/main/resources/chiave.png")); // NOI18N
         btn_chiave.setText("Genera Chiave");
         btn_chiave.setToolTipText("");
         btn_chiave.setActionCommand("btn_connetti");
@@ -525,7 +522,7 @@ public class frameServer extends javax.swing.JFrame {
                     txt_stato.setBackground(Color.green);
                     JLabel label = new JLabel("Connessione stabilita con Dispositivo Mobile.");
                     label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-                    ImageIcon icon = new ImageIcon(getClass().getResource("androidDialogo.png"));
+                    ImageIcon icon = new ImageIcon(getClass().getResource("src/main/resources/androidDialogo.png"));
                     JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
 
                     dIS = new DataInputStream(s.getInputStream());
@@ -547,7 +544,7 @@ public class frameServer extends javax.swing.JFrame {
                             public void run() {
                                 JLabel label = new JLabel("Hai appena ricevuto un messaggio!");
                                 label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-                                ImageIcon icon = new ImageIcon(getClass().getResource("androidDialogo.png"));
+                                ImageIcon icon = new ImageIcon(getClass().getResource("src/main/resources/androidDialogo.png"));
                                 JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
 
                             }
@@ -635,7 +632,7 @@ public class frameServer extends javax.swing.JFrame {
         txt_msgCriptato.setText(encryptedMessage);
         JLabel label = new JLabel("Il messaggio รจ stato criptato!");
         label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        ImageIcon icon = new ImageIcon("lockDialogo.png");
+        ImageIcon icon = new ImageIcon("src/main/resources/lockDialogo.png");
         JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
 
 
@@ -646,7 +643,7 @@ public class frameServer extends javax.swing.JFrame {
         txt_chiave.setText(chiaveGenerata);
         JLabel label = new JLabel("Chiave generata con successo!");
         label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        ImageIcon icon = new ImageIcon(("chiaveDialogo.png"));
+        ImageIcon icon = new ImageIcon(("src/main/resources/chiaveDialogo.png"));
         JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
 
     }//GEN-LAST:event_btn_chiaveActionPerformed
@@ -671,7 +668,7 @@ public class frameServer extends javax.swing.JFrame {
                     dOS.flush();
                     JLabel label = new JLabel("Messaggio inviato con successo!");
                     label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-                    ImageIcon icon = new ImageIcon(("lockDialogo.png"));
+                    ImageIcon icon = new ImageIcon(("src/main/resources/lockDialogo.png"));
                     JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
 
                 } catch (IOException ex) {
@@ -696,7 +693,7 @@ public class frameServer extends javax.swing.JFrame {
             txt_msgRicevuto.setText(decryptedMessage);
             JLabel label = new JLabel("Messaggio Decriptato!");
             label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-            ImageIcon icon = new ImageIcon(("unlock.png"));
+            ImageIcon icon = new ImageIcon(("src/main/resources/unlock.png"));
             JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
 
         } catch (Exception ex) {

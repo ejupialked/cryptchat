@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>serverCryptChat</groupId>
+    <groupId>CryptChat</groupId>
     <artifactId>serverCryptChat</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1</version>
     <build>
         <plugins>
             <plugin>
@@ -38,13 +38,22 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>comp1206.sushi.Launcher</mainClass>
+                            <mainClass>frameServer</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
 
         </plugins>
+
+
+            <resources>
+                <resource>
+                    <directory>src/main/config</directory>
+                </resource>
+            </resources>
+
+
     </build>
     <repositories>
         <repository>
@@ -53,6 +62,8 @@
             <url>http://bits.netbeans.org/maven2/</url>
         </repository>
     </repositories>
+
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -67,6 +78,12 @@
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE712</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.6.2-jaxb-1.0.6</version>
         </dependency>
 
 
