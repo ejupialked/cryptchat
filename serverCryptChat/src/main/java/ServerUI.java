@@ -1,21 +1,10 @@
-
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
-
 import java.awt.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.URL;
-import java.security.Key;
-import java.util.Random;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -41,13 +30,15 @@ public class ServerUI extends javax.swing.JFrame {
 
     public ServerUI(Server server) {
 
+        this.server = server;
+        this.server.setUI(this);
         this.setVisible(true);
         initComponents();
         mettiIcona();
 
-        txt_stato.setText("SERVER DISCONESSO");
-        txt_stato.setForeground(Color.BLACK);
-        txt_stato.setBackground(Color.red);
+        txtStatus.setText("SERVER DISCONESSO");
+        txtStatus.setForeground(Color.BLACK);
+        txtStatus.setBackground(Color.red);
     }
 
 
@@ -60,8 +51,8 @@ public class ServerUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btn_connetti = new javax.swing.JButton();
-        txt_porta = new javax.swing.JTextField();
-        txt_stato = new javax.swing.JTextField();
+        txtPort = new JTextField();
+        txtStatus = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -80,7 +71,7 @@ public class ServerUI extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        txt_msgRicevuto = new javax.swing.JLabel();
+        txtReceivedMessage = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         txt_msgCriptato = new javax.swing.JLabel();
         txt_msg = new javax.swing.JTextField();
@@ -138,28 +129,28 @@ public class ServerUI extends javax.swing.JFrame {
         });
         jPanel2.add(btn_connetti, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 170, 40));
 
-        txt_porta.setBackground(new java.awt.Color(0, 51, 102));
-        txt_porta.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
-        txt_porta.setForeground(new java.awt.Color(255, 255, 255));
-        txt_porta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_porta.setBorder(null);
-        txt_porta.addActionListener(new java.awt.event.ActionListener() {
+        txtPort.setBackground(new java.awt.Color(0, 51, 102));
+        txtPort.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        txtPort.setForeground(new java.awt.Color(255, 255, 255));
+        txtPort.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPort.setBorder(null);
+        txtPort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_portaActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_porta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 50, -1));
+        jPanel2.add(txtPort, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 50, -1));
 
-        txt_stato.setBackground(new java.awt.Color(0, 51, 102));
-        txt_stato.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        txt_stato.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_stato.setBorder(null);
-        txt_stato.addActionListener(new java.awt.event.ActionListener() {
+        txtStatus.setBackground(new java.awt.Color(0, 51, 102));
+        txtStatus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        txtStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtStatus.setBorder(null);
+        txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_statoActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_stato, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 190, 30));
+        jPanel2.add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 190, 30));
 
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator3.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -327,10 +318,10 @@ public class ServerUI extends javax.swing.JFrame {
         jSeparator5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jPanel3.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 580, 20));
 
-        txt_msgRicevuto.setFont(new java.awt.Font("Century Gothic", 1, 17)); // NOI18N
-        txt_msgRicevuto.setForeground(new java.awt.Color(255, 153, 51));
-        txt_msgRicevuto.setText("messaggio ricevuto");
-        jPanel3.add(txt_msgRicevuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 71, 580, 40));
+        txtReceivedMessage.setFont(new java.awt.Font("Century Gothic", 1, 17)); // NOI18N
+        txtReceivedMessage.setForeground(new java.awt.Color(255, 153, 51));
+        txtReceivedMessage.setText("messaggio ricevuto");
+        jPanel3.add(txtReceivedMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 71, 580, 40));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 800, 140));
 
@@ -449,73 +440,14 @@ public class ServerUI extends javax.swing.JFrame {
 
 
     private void btn_connettiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_connettiActionPerformed
+        int port;
 
-        Thread t = new Thread(new Runnable() {
-            public void run() {
+        port = Integer.parseInt(txtPort.getText());
+        server.setPort(port);
 
-                try {
-
-                    try {
-                        ss =new ServerSocket(Integer.parseInt(txt_porta.getText()));
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "La chiave deve essere di 16 caratteri", "Errore",
-                                JOptionPane.ERROR_MESSAGE);
-
-                    }
-
-                    txt_stato.setText("In ricerca di connessioni...");
-                    txt_stato.setForeground(Color.WHITE);
-                    txt_stato.setBackground(Color.decode("#003366"));
-                    s= ss.accept();
-
-                    txt_stato.setText("SERVER CONNESSO");
-                    txt_stato.setForeground(Color.BLACK);
-
-                    txt_stato.setBackground(Color.green);
-                    JLabel label = new JLabel("Connessione stabilita con Dispositivo Mobile.");
-                    label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-                    ImageIcon icon = new ImageIcon(getClass().getResource("src/main/resources/androidDialogo.png"));
-                    JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
-
-                    dIS = new DataInputStream(s.getInputStream());
-                    dOS = new DataOutputStream(s.getOutputStream());
-
-                    while(!data.equals("exit"))
-                    {
-                        data = dIS.readUTF();
-
-                        int fineChiave = data.indexOf("/#&#/");
-                        int inizioChiave = 0;
-                        int inizioMessaggio = data.indexOf("/#&#/") + 5;
-                        int fineMessaggio = data.length();
-
-                        chiaveRicevuta = data.substring(inizioChiave, fineChiave);
-                        messaggioRicevuto = data.substring(inizioMessaggio, fineMessaggio);
-
-                        Thread t = new Thread(new Runnable() {
-                            public void run() {
-                                JLabel label = new JLabel("Hai appena ricevuto un messaggio!");
-                                label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-                                ImageIcon icon = new ImageIcon(getClass().getResource("src/main/resources/androidDialogo.png"));
-                                JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
-
-                            }
-                        });
-                        t.start();
-
-                        txt_msgRicevuto.setText(messaggioRicevuto);
-
-                    }
-
-                } catch (IOException ex) {
-
-                }
-
-            }
-        });
-        t.start();
-
-    }//GEN-LAST:event_btn_connettiActionPerformed
+        Thread connection = new Thread(server);
+        connection.start();
+    }
 
     private void txt_portaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_portaActionPerformed
 
@@ -591,14 +523,26 @@ public class ServerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_criptaActionPerformed
 
     private void btn_chiaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chiaveActionPerformed
+
         chiaveGenerata = CryptMessage.generateKey();
         txt_chiave.setText(chiaveGenerata);
-        JLabel label = new JLabel("Chiave generata con successo!");
-        label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        ImageIcon icon = new ImageIcon(("src/main/resources/chiaveDialogo.png"));
-        JOptionPane.showMessageDialog(this,label,"Notifica",-1,icon);
 
-    }//GEN-LAST:event_btn_chiaveActionPerformed
+        showCustomMessage(this,
+                "Chiave generata con successo!",
+                "Notifica" ,
+                -1,
+                "src/main/resources/chiaveDialogo.png");
+    }
+
+
+
+    public void showCustomMessage(JFrame parent, String text, String title, int messageType, String pathImg){
+        JLabel label = new JLabel(text);
+        label.setFont(new Font("Century Gothic", Font.BOLD, 15));
+        ImageIcon icon = new ImageIcon(pathImg);
+        JOptionPane.showMessageDialog(parent,label,title,messageType,icon);
+
+    }
 
     private void btn_inviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inviaActionPerformed
 
@@ -641,7 +585,7 @@ public class ServerUI extends javax.swing.JFrame {
 
         try {
             decryptedMessage = CryptMessage.decrypt(messaggioRicevuto, chiaveRicevuta);
-            txt_msgRicevuto.setText(decryptedMessage);
+            txtReceivedMessage.setText(decryptedMessage);
             JLabel label = new JLabel("Messaggio Decriptato!");
             label.setFont(new Font("Century Gothic", Font.BOLD, 15));
             ImageIcon icon = new ImageIcon(("src/main/resources/unlock.png"));
@@ -712,11 +656,22 @@ public class ServerUI extends javax.swing.JFrame {
     private javax.swing.JTextField txt_chiave;
     private javax.swing.JTextField txt_msg;
     private javax.swing.JLabel txt_msgCriptato;
-    private static javax.swing.JLabel txt_msgRicevuto;
-    public javax.swing.JTextField txt_porta;
-    private static javax.swing.JTextField txt_stato;
+    private static JLabel txtReceivedMessage;
+    public JTextField txtPort;
+    private static JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
 
+    public JTextField getTxtPort(){
+        return txtPort;
+    }
+
+    public JTextField getTxtStatus(){
+        return txtStatus;
+    }
+
+    public JLabel getTxtReceivedMessage(){
+        return txtReceivedMessage;
+    }
     private void mettiIcona() {
 
 
