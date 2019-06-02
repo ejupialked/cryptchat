@@ -806,6 +806,7 @@ public class frameServer extends javax.swing.JFrame {
 
 
 
+
             ImageIcon icon = new ImageIcon("src/main/resources/lock.png");
             setIconImage(icon.getImage());
 
