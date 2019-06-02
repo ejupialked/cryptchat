@@ -11,8 +11,6 @@ import java.net.Socket;
 import java.net.URL;
 import java.security.Key;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.swing.ImageIcon;
@@ -23,10 +21,9 @@ import javax.swing.JOptionPane;
  *
  * @author Alked Ejupi
  */
-public class frameServer extends javax.swing.JFrame {
+public class UI extends javax.swing.JFrame {
     static String AES = "AES";
 
-    String output;
     static String result = "";
     static Thread t;
     static Socket s;
@@ -40,7 +37,7 @@ public class frameServer extends javax.swing.JFrame {
     static String messaggioRicevuto = "", messaggioDaInviare = "";
     static String data= " " ;
 
-    public frameServer() {
+    public UI() {
         initComponents();
         mettiIcona();
 
@@ -672,7 +669,6 @@ public class frameServer extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
 
                 } catch (IOException ex) {
-                    Logger.getLogger(frameServer.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
 
@@ -742,7 +738,7 @@ public class frameServer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frameServer().setVisible(true);
+                new UI().setVisible(true);
                 txt_stato.setText("SERVER DISCONESSO");
                 txt_stato.setForeground(Color.BLACK);
 

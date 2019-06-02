@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15d22dde-4a80-4afa-85b1-a749a1b4f5db" name="Default Changelist" comment="add dependency netbeans lib">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Webp.net-resizeimage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/androidDialogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/chiave.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/chiaveDialogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/lock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/lockDialogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/lockk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/lucchetto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/send.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/server.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/transparent_text_effect--1-.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/unlock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/unlock1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/formServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frameServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frameServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,61 +20,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/frameServer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1727">
-              <caret line="818" column="62" lean-forward="true" selection-start-line="818" selection-start-column="62" selection-end-line="818" selection-end-column="62" />
+            <state relative-caret-position="576">
+              <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1285#1374#0" expanded="true" />
+                <element signature="e#1200#1289#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="643" column="16" selection-start-line="643" selection-start-column="16" selection-end-line="643" selection-end-column="16" />
-              <folding>
-                <element signature="e#22926#22927#0" expanded="true" />
-                <element signature="e#22967#22968#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/awt/Toolkit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9728">
-              <caret line="688" column="26" selection-start-line="688" selection-start-column="26" selection-end-line="688" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/chiave.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/lockk.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/transparent_text_effect--1-.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/Webp.net-resizeimage.png">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -110,8 +70,25 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/frameServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UI.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="serverCryptChat" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="serverCryptChat" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="333" />
@@ -153,33 +130,14 @@
             <path>
               <item name="serverCryptChat" type="b2602c69:ProjectViewProjectNode" />
               <item name="serverCryptChat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="serverCryptChat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="serverCryptChat" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="serverCryptChat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="serverCryptChat" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="serverCryptChat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="serverCryptChat" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -247,6 +205,8 @@
       <updated>1559241595744</updated>
       <workItem from="1559241600017" duration="555000" />
       <workItem from="1559295747442" duration="2612000" />
+      <workItem from="1559428289384" duration="1051000" />
+      <workItem from="1559507030665" duration="1758000" />
     </task>
     <task id="LOCAL-00001" summary="add dependency netbeans lib">
       <created>1559241810988</created>
@@ -255,17 +215,24 @@
       <option name="project" value="LOCAL" />
       <updated>1559241810988</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="resources jar fixed">
+      <created>1559508415384</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559508415384</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5865000" />
+    <option name="totallyTimeSpent" value="8674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" x="41" y="267" width="644" height="647" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21931697" />
+      <window_info active="true" content_ui="combo" x="41" y="267" width="644" height="647" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22518677" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -274,8 +241,8 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28893661" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32975295" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28893661" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.09344791" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -297,7 +264,7 @@
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Maven" order="7" visible="true" weight="0.09071505" />
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
@@ -308,49 +275,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add dependency netbeans lib" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dependency netbeans lib" />
+    <MESSAGE value="resources jar fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="resources jar fixed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/formServer.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/androidDialogo.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/awt/Toolkit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9728">
-          <caret line="688" column="26" selection-start-line="688" selection-start-column="26" selection-end-line="688" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/chiave.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/lockk.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/transparent_text_effect--1-.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Webp.net-resizeimage.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="643" column="16" selection-start-line="643" selection-start-column="16" selection-end-line="643" selection-end-column="16" />
-          <folding>
-            <element signature="e#22926#22927#0" expanded="true" />
-            <element signature="e#22967#22968#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/awt/Image.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -373,13 +304,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/frameServer.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1727">
-          <caret line="818" column="62" lean-forward="true" selection-start-line="818" selection-start-column="62" selection-end-line="818" selection-end-column="62" />
+        <state relative-caret-position="9376">
+          <caret line="643" column="16" selection-start-line="643" selection-start-column="16" selection-end-line="643" selection-end-column="16" />
+          <folding>
+            <element signature="e#22926#22927#0" expanded="true" />
+            <element signature="e#22967#22968#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/awt/Toolkit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9792">
+          <caret line="688" column="26" selection-start-line="688" selection-start-column="26" selection-end-line="688" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/chiave.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/lockk.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/transparent_text_effect--1-.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Webp.net-resizeimage.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1285#1374#0" expanded="true" />
+            <element signature="e#1200#1289#0" expanded="true" />
           </folding>
         </state>
       </provider>
