@@ -38,7 +38,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>frameServer</mainClass>
+                            <mainClass>ServerApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -21,8 +21,10 @@ import javax.swing.JOptionPane;
  *
  * @author Alked Ejupi
  */
-public class UI extends javax.swing.JFrame {
-    static String AES = "AES";
+public class ServerUI extends javax.swing.JFrame {
+
+
+    private Server server;
 
     static String result = "";
     static Thread t;
@@ -37,14 +39,18 @@ public class UI extends javax.swing.JFrame {
     static String messaggioRicevuto = "", messaggioDaInviare = "";
     static String data= " " ;
 
-    public UI() {
+    public ServerUI(Server server) {
+
+        this.setVisible(true);
         initComponents();
         mettiIcona();
 
+        txt_stato.setText("SERVER DISCONESSO");
+        txt_stato.setForeground(Color.BLACK);
+        txt_stato.setBackground(Color.red);
     }
 
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
@@ -441,58 +447,7 @@ public class UI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    public String generateKey() {
-        String key = "";
 
-        Random random = new Random();
-        for (int x = 0; x < 16; x++) {
-            int c = random.nextInt(122 - 48) + 48;
-            if ((c >= 50 && c <= 64) | (c >= 91 && c <= 96)) {
-                x--;
-                continue;
-            }
-            key += ((char) c);
-
-
-        }
-        return key;
-
-    }
-    public String encrypt(String message, String key) throws Exception {
-
-        byte[] byteMessage = message.getBytes();
-        byte[] byteKey = key.getBytes();
-
-
-        Key secretKey = new SecretKeySpec(byteKey, "AES");
-
-
-        Cipher c = Cipher.getInstance(AES);
-
-        c.init(Cipher.ENCRYPT_MODE, secretKey);
-
-        byte[] cipher = c.doFinal(byteMessage);
-
-        String encryptedValue = Base64.encode(cipher);
-        return encryptedValue;
-
-    }
-    public String decrypt(String encryptedMessage, String key) throws Exception
-    {
-        byte[] byteKey = key.getBytes();
-
-        Key secretKey = new SecretKeySpec(byteKey, AES);
-
-        Cipher c = Cipher.getInstance(AES);
-        c.init(Cipher.DECRYPT_MODE, secretKey);
-
-        byte[] decodedValue = Base64.decode(encryptedMessage);
-        byte[] decValue =c.doFinal(decodedValue);
-
-        String decryptedValue =new String (decValue);
-        return decryptedValue;
-
-    }
     private void btn_connettiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_connettiActionPerformed
 
         Thread t = new Thread(new Runnable() {
@@ -618,7 +573,7 @@ public class UI extends javax.swing.JFrame {
 
             if(procedi)
             {
-                encryptedMessage = encrypt(messaggioDaInviare, chiaveGenerata);
+                encryptedMessage = CryptMessage.encrypt(messaggioDaInviare, chiaveGenerata);
             }
 
 
@@ -636,12 +591,12 @@ public class UI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_criptaActionPerformed
 
     private void btn_chiaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chiaveActionPerformed
-        chiaveGenerata = generateKey();
+        chiaveGenerata = CryptMessage.generateKey();
         txt_chiave.setText(chiaveGenerata);
         JLabel label = new JLabel("Chiave generata con successo!");
         label.setFont(new Font("Century Gothic", Font.BOLD, 15));
         ImageIcon icon = new ImageIcon(("src/main/resources/chiaveDialogo.png"));
-        JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
+        JOptionPane.showMessageDialog(this,label,"Notifica",-1,icon);
 
     }//GEN-LAST:event_btn_chiaveActionPerformed
 
@@ -685,7 +640,7 @@ public class UI extends javax.swing.JFrame {
     private void btn_decriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_decriptaActionPerformed
 
         try {
-            decryptedMessage = decrypt(messaggioRicevuto, chiaveRicevuta);
+            decryptedMessage = CryptMessage.decrypt(messaggioRicevuto, chiaveRicevuta);
             txt_msgRicevuto.setText(decryptedMessage);
             JLabel label = new JLabel("Messaggio Decriptato!");
             label.setFont(new Font("Century Gothic", Font.BOLD, 15));
@@ -715,43 +670,7 @@ public class UI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_statoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
 
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-
-        } catch (InstantiationException ex) {
-        } catch (IllegalAccessException ex) {
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UI().setVisible(true);
-                txt_stato.setText("SERVER DISCONESSO");
-                txt_stato.setForeground(Color.BLACK);
-
-                txt_stato.setBackground(Color.red);
-
-            }
-
-
-
-
-
-        });
-    }
 
 
 
@@ -810,16 +729,9 @@ public class UI extends javax.swing.JFrame {
 
     }
 
-    private File getFileFromResources(String fileName) {
 
-        ClassLoader classLoader = getClass().getClassLoader();
 
-        URL resource = classLoader.getResource(fileName);
-        if (resource == null) {
-            throw new IllegalArgumentException("file is not found!");
-        } else {
-            return new File(resource.getFile());
-        }
+    private void showMessage(){
 
     }
 }
