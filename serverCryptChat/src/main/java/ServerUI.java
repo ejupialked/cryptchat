@@ -1,4 +1,8 @@
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,21 +16,8 @@ import javax.swing.*;
  */
 public class ServerUI extends javax.swing.JFrame {
 
-
     private Server server;
 
-    static String result = "";
-    static Thread t;
-    static Socket s;
-    static ServerSocket ss;
-    String msgout = " ";
-    static DataOutputStream dOS;
-    static DataInputStream dIS;
-    static String encryptedMessage;
-    public String decryptedMessage = "";
-    static String chiaveRicevuta = "", chiaveGenerata = "";
-    static String messaggioRicevuto = "", messaggioDaInviare = "";
-    static String data= " " ;
 
     public ServerUI(Server server) {
 
@@ -36,7 +27,8 @@ public class ServerUI extends javax.swing.JFrame {
         initComponents();
         mettiIcona();
 
-        txtStatus.setText("SERVER DISCONESSO");
+
+        txtStatus.setText("Server Disconnected");
         txtStatus.setForeground(Color.BLACK);
         txtStatus.setBackground(Color.red);
     }
@@ -44,66 +36,66 @@ public class ServerUI extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        btn_connetti = new javax.swing.JButton();
+        jPanel2 = new JPanel();
+        jLabel1 = new JLabel();
+        jLabel2 = new JLabel();
+        jSeparator1 = new JSeparator();
+        jLabel3 = new JLabel();
+        jLabel5 = new JLabel();
+        btn_connetti = new JButton();
         txtPort = new JTextField();
-        txtStatus = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        btn_decripta = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        txtReceivedMessage = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
-        txt_msgCriptato = new javax.swing.JLabel();
-        txt_msg = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        btn_cripta = new javax.swing.JButton();
-        btn_invia = new javax.swing.JButton();
-        btn_cancella = new javax.swing.JButton();
-        btn_chiave = new javax.swing.JButton();
-        txt_chiave = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel10 = new javax.swing.JLabel();
+        txtStatus = new JTextField();
+        jSeparator3 = new JSeparator();
+        jButton2 = new JButton();
+        jButton3 = new JButton();
+        jButton4 = new JButton();
+        jButton5 = new JButton();
+        jButton6 = new JButton();
+        jButton7 = new JButton();
+        jButton8 = new JButton();
+        jLabel8 = new JLabel();
+        jSeparator4 = new JSeparator();
+        jPanel3 = new JPanel();
+        jScrollPane1 = new JScrollPane();
+        jTextArea1 = new JTextArea();
+        btn_decripta = new JButton();
+        jLabel4 = new JLabel();
+        jLabel7 = new JLabel();
+        jSeparator6 = new JSeparator();
+        jSeparator5 = new JSeparator();
+        txtReceivedMessage = new JLabel();
+        jSeparator7 = new JSeparator();
+        txt_msgCriptato = new JLabel();
+        txt_msg = new JTextField();
+        jPanel1 = new JPanel();
+        btn_cripta = new JButton();
+        btn_invia = new JButton();
+        btn_cancella = new  JButton();
+        btn_chiave = new JButton();
+        txt_chiave = new JTextField();
+        jLabel6 = new JLabel();
+        jSeparator2 = new JSeparator();
+        jLabel10 = new JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("CriptChat by Ejupi Alked");
-        setBackground(new java.awt.Color(255, 0, 0));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new Color(255, 0, 0));
+        setCursor(new java.awt.Cursor(Cursor.DEFAULT_CURSOR));
+        getContentPane().setLayout(new AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 102));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new Color(0, 51, 102));
+        jPanel2.setLayout(new AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("src/main/resources/lockk.png")); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 190, 140));
+        jLabel1.setIcon(new ImageIcon("src/main/resources/lockk.png"));
+        jPanel2.add(jLabel1, new AbsoluteConstraints(0, 80, 190, 140));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("PORTA");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 50, 20));
+        jLabel2.setFont(new Font("Century Gothic", 1, 14));
+        jLabel2.setForeground(new Color(255, 255, 255));
+        jLabel2.setText("PORT");
+        jPanel2.add(jLabel2, new AbsoluteConstraints(20, 230, 50, 20));
 
-        jSeparator1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 70, 10));
+        jSeparator1.setFont(new Font("sansserif", 1, 12));
+        jPanel2.add(jSeparator1, new AbsoluteConstraints(80, 250, 70, 10));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("src/main/resources/Webp.net-resizeimage.png")); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, 40));
@@ -113,10 +105,10 @@ public class ServerUI extends javax.swing.JFrame {
         jLabel5.setText("I.I.S.S E. Mattei A.S 2016-2017");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 170, 20));
 
-        btn_connetti.setBackground(new java.awt.Color(45, 92, 107));
-        btn_connetti.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btn_connetti.setForeground(new java.awt.Color(255, 255, 255));
-        btn_connetti.setIcon(new javax.swing.ImageIcon("src/main/resources/server.png")); // NOI18N
+        btn_connetti.setBackground(new Color(45, 92, 107));
+        btn_connetti.setFont(new Font("Century Gothic", 1, 14)); // NOI18N
+        btn_connetti.setForeground(new Color(255, 255, 255));
+        btn_connetti.setIcon(new ImageIcon("src/main/resources/server.png")); // NOI18N
         btn_connetti.setText("Avvia Server");
         btn_connetti.setToolTipText("");
         btn_connetti.setActionCommand("btn_connetti");
@@ -427,19 +419,19 @@ public class ServerUI extends javax.swing.JFrame {
         jSeparator2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 20));
 
-        jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new Font("Century Gothic", 1, 16)); // NOI18N
+        jLabel10.setForeground(new Color(255, 255, 255));
         jLabel10.setText("MESSAGGIO CRIPTATO");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 200, -1));
+        jPanel1.add(jLabel10, new AbsoluteConstraints(40, 220, 200, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 800, 330));
+        getContentPane().add(jPanel1, new AbsoluteConstraints(190, 0, 800, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
 
-    private void btn_connettiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_connettiActionPerformed
+    private void btn_connettiActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btn_connettiActionPerformed
         int port;
 
         port = Integer.parseInt(txtPort.getText());
@@ -449,11 +441,11 @@ public class ServerUI extends javax.swing.JFrame {
         connection.start();
     }
 
-    private void txt_portaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_portaActionPerformed
+    private void txt_portaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txt_portaActionPerformed
 
     }//GEN-LAST:event_txt_portaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -481,46 +473,20 @@ public class ServerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void btn_criptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_criptaActionPerformed
+    private void btn_criptaActionPerformed(ActionEvent evt) {
+
+        String message = txt_msg.getText();
+        String key = txt_chiave.getText();
+
         try {
-
-            messaggioDaInviare = txt_msg.getText();
-            chiaveGenerata = txt_chiave.getText();
-
-            boolean procedi = true;
-
-            if(chiaveGenerata.length() != 16 && chiaveGenerata.length() != 0)
-            {
-                JOptionPane.showMessageDialog(null, "La chiave deve essere di 16 caratteri", "Errore",
-                        JOptionPane.ERROR_MESSAGE);
-                procedi = false;
-            }
-
-            else if (chiaveGenerata.length() == 0)
-            {
-                JOptionPane.showMessageDialog(null, "Non hai inserito nessuna chiave", "Errore",
-                        JOptionPane.ERROR_MESSAGE);
-                procedi = false;
-            }
-
-            if(procedi)
-            {
-                encryptedMessage = CryptMessage.encrypt(messaggioDaInviare, chiaveGenerata);
-            }
-
-
+            String keyEncrypted = server.encryptMessage(message, key);
+            txt_msgCriptato.setText(keyEncrypted);
+            showCustomMessage(this, "The message has been ecrypted!",
+                    "Notification", -1,"src/main/resources/lockDialogo.png" );
         } catch (Exception e) {
-            e.printStackTrace();
+            showCustomMessage(this, e.getMessage(), "Error", 0, null);
         }
-
-        txt_msgCriptato.setText(encryptedMessage);
-        JLabel label = new JLabel("Il messaggio รจ stato criptato!");
-        label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        ImageIcon icon = new ImageIcon("src/main/resources/lockDialogo.png");
-        JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
-
-
-    }//GEN-LAST:event_btn_criptaActionPerformed
+    }
 
     private void btn_chiaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chiaveActionPerformed
 
@@ -586,6 +552,8 @@ public class ServerUI extends javax.swing.JFrame {
         try {
             decryptedMessage = CryptMessage.decrypt(messaggioRicevuto, chiaveRicevuta);
             txtReceivedMessage.setText(decryptedMessage);
+
+
             JLabel label = new JLabel("Messaggio Decriptato!");
             label.setFont(new Font("Century Gothic", Font.BOLD, 15));
             ImageIcon icon = new ImageIcon(("src/main/resources/unlock.png"));
@@ -618,40 +586,39 @@ public class ServerUI extends javax.swing.JFrame {
 
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cancella;
-    private javax.swing.JButton btn_chiave;
-    private javax.swing.JButton btn_connetti;
-    private javax.swing.JButton btn_cripta;
-    private javax.swing.JButton btn_decripta;
-    private javax.swing.JButton btn_invia;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
+    private JButton btn_cancella;
+    private JButton btn_chiave;
+    private JButton btn_connetti;
+    private JButton btn_cripta;
+    private JButton btn_decripta;
+    private JButton btn_invia;
+    private JButton jButton2;
+    private JButton jButton3;
+    private JButton jButton4;
+    private JButton jButton5;
+    private JButton jButton6;
+    private JButton jButton7;
+    private JButton jButton8;
+    private JLabel jLabel1;
+    private JLabel jLabel10;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JLabel jLabel5;
+    private JLabel jLabel6;
+    private JLabel jLabel7;
+    private JLabel jLabel8;
+    private JPanel jPanel1;
+    private JPanel jPanel2;
+    private JPanel jPanel3;
+    private JScrollPane jScrollPane1;
+    private JSeparator jSeparator1;
+    private JSeparator jSeparator2;
+    private JSeparator jSeparator3;
+    private JSeparator jSeparator4;
+    private JSeparator jSeparator5;
+    private JSeparator jSeparator6;
+    private JSeparator jSeparator7;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txt_chiave;
     private javax.swing.JTextField txt_msg;
@@ -659,7 +626,20 @@ public class ServerUI extends javax.swing.JFrame {
     private static JLabel txtReceivedMessage;
     public JTextField txtPort;
     private static JTextField txtStatus;
-    // End of variables declaration//GEN-END:variables
+
+
+
+    public void showConnectionEstablished(){
+        txtStatus.setText("Server connected");
+        txtStatus.setForeground(Color.BLACK);
+        txtStatus.setBackground(Color.green);
+
+        showCustomMessage(this,
+                "Connection established with Android device",
+                "Notification", -1,
+                "src/main/resources/androidDialogo.png"
+        );
+    }
 
     public JTextField getTxtPort(){
         return txtPort;
@@ -673,20 +653,8 @@ public class ServerUI extends javax.swing.JFrame {
         return txtReceivedMessage;
     }
     private void mettiIcona() {
-
-
-
-
-            ImageIcon icon = new ImageIcon("src/main/resources/lock.png");
+       ImageIcon icon = new ImageIcon("src/main/resources/lock.png");
             setIconImage(icon.getImage());
-
-
-
     }
 
-
-
-    private void showMessage(){
-
-    }
 }

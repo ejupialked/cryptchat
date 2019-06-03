@@ -53,15 +53,8 @@ public class Server implements Runnable{
 
         try {
             socket = serverSocket.accept();
-            serverUI.getTxtStatus().setText("Server connected");
-            serverUI.getTxtStatus().setForeground(Color.BLACK);
-            serverUI.getTxtStatus().setBackground(Color.green);
 
-            serverUI.showCustomMessage(serverUI,
-                    "Connection established with Android device",
-                    "Notification", -1,
-                    "src/main/resources/androidDialogo.png"
-                    );
+            serverUI.showConnectionEstablished(); //UI
 
 
             objectInputStream = new ObjectInputStream(socket.getInputStream());
@@ -107,6 +100,7 @@ public class Server implements Runnable{
                             -1,
                             "src/main/resources/androidDialogo.png" );
                 }).start();
+
             }catch (Exception e){
 
             }
@@ -115,6 +109,19 @@ public class Server implements Runnable{
 
 
         }
+
+    }
+
+
+    public String encryptMessage(String message, String key) throws Exception{
+
+        if(key.length() != 16 && key.length() != 0){
+            throw new Exception("The key must be 16 characters.");
+        }else if(key.length() == 0){
+            throw new Exception("Key not inserted");
+        }
+
+        return CryptMessage.encrypt(message, key);
 
     }
 
