@@ -11,7 +11,7 @@ public class CryptMessage {
 
 
     public static String generateKey() {
-        String key = null;
+        String key = "";
         for (int x = 0; x < 16; x++) {
             int c = new Random().nextInt(122 - 48) + 48;
 

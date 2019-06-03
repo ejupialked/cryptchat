@@ -7,7 +7,6 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.security.spec.ECField;
 
 public class Server implements Runnable{
 
@@ -28,6 +27,7 @@ public class Server implements Runnable{
         try {
             InetAddress localhost = InetAddress.getLocalHost();
             this.ipHost = localhost.getHostAddress();
+            System.err.println(ipHost);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
@@ -38,8 +38,16 @@ public class Server implements Runnable{
         return ipHost;
     }
 
-    public void setPort(int port) {
-        this.port = port;
+    public void setPort (String port) throws Exception {
+        int intPort;
+
+        try {
+            intPort =Integer.parseInt(port);
+        }catch (Exception e){
+            throw new Exception("Port not valid");
+        }
+
+        this.port = intPort;
     }
 
     public void openConnection(int port){

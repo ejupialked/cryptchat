@@ -1,17 +1,11 @@
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- *
  * @author Alked Ejupi
  */
 public class ServerUI extends javax.swing.JFrame {
@@ -29,7 +23,6 @@ public class ServerUI extends javax.swing.JFrame {
         initComponents();
         mettiIcona();
 
-
         txtStatus.setText("Server Disconnected");
         txtStatus.setForeground(Color.BLACK);
         txtStatus.setBackground(Color.red);
@@ -37,7 +30,6 @@ public class ServerUI extends javax.swing.JFrame {
 
 
     private void initComponents() {
-
         jPanel2 = new JPanel();
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -49,12 +41,6 @@ public class ServerUI extends javax.swing.JFrame {
         txtStatus = new JTextField();
         jSeparator3 = new JSeparator();
         jButton2 = new JButton();
-        jButton3 = new JButton();
-        jButton4 = new JButton();
-        jButton5 = new JButton();
-        jButton6 = new JButton();
-        jButton7 = new JButton();
-        jButton8 = new JButton();
         jLabel8 = new JLabel();
         jSeparator4 = new JSeparator();
         jPanel3 = new JPanel();
@@ -72,15 +58,15 @@ public class ServerUI extends javax.swing.JFrame {
         jPanel1 = new JPanel();
         btn_cripta = new JButton();
         btn_invia = new JButton();
-        btn_cancella = new  JButton();
-        btn_chiave = new JButton();
+        btnCancel = new  JButton();
+        btnKey = new JButton();
         txt_chiave = new JTextField();
         jLabel6 = new JLabel();
         jSeparator2 = new JSeparator();
         jLabel10 = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CriptChat by Ejupi Alked");
+        setTitle("CryptChat by Ejupi Alked");
         setBackground(new Color(255, 0, 0));
         setCursor(new java.awt.Cursor(Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(new AbsoluteLayout());
@@ -104,19 +90,19 @@ public class ServerUI extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("I.I.S.S E. Mattei A.S 2016-2017");
+        jLabel5.setText("");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 170, 20));
 
         btn_connetti.setBackground(new Color(45, 92, 107));
         btn_connetti.setFont(new Font("Century Gothic", 1, 14)); // NOI18N
         btn_connetti.setForeground(new Color(255, 255, 255));
         btn_connetti.setIcon(new ImageIcon("src/main/resources/server.png")); // NOI18N
-        btn_connetti.setText("Avvia Server");
+        btn_connetti.setText("Run Server");
         btn_connetti.setToolTipText("");
         btn_connetti.setActionCommand("btn_connetti");
         btn_connetti.setBorder(null);
         btn_connetti.setBorderPainted(false);
-        btn_connetti.addActionListener(new java.awt.event.ActionListener() {
+        btn_connetti.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_connettiActionPerformed(evt);
             }
@@ -127,23 +113,13 @@ public class ServerUI extends javax.swing.JFrame {
         txtPort.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         txtPort.setForeground(new java.awt.Color(255, 255, 255));
         txtPort.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPort.setBorder(null);
-        txtPort.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_portaActionPerformed(evt);
-            }
-        });
+        txtPort.setBorder(null);;
         jPanel2.add(txtPort, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 50, -1));
 
         txtStatus.setBackground(new java.awt.Color(0, 51, 102));
         txtStatus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         txtStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtStatus.setBorder(null);
-        txtStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_statoActionPerformed(evt);
-            }
-        });
         jPanel2.add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 190, 30));
 
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,114 +128,9 @@ public class ServerUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 470));
 
-        jButton2.setBackground(new java.awt.Color(45, 92, 107));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Avvia Server");
-        jButton2.setToolTipText("");
-        jButton2.setActionCommand("btn_connetti");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 100, 40));
-
-        jButton3.setBackground(new java.awt.Color(45, 92, 107));
-        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Avvia Server");
-        jButton3.setToolTipText("");
-        jButton3.setActionCommand("btn_connetti");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 100, 40));
-
-        jButton4.setBackground(new java.awt.Color(45, 92, 107));
-        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Avvia Server");
-        jButton4.setToolTipText("");
-        jButton4.setActionCommand("btn_connetti");
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 100, 40));
-
-        jButton5.setBackground(new java.awt.Color(45, 92, 107));
-        jButton5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Avvia Server");
-        jButton5.setToolTipText("");
-        jButton5.setActionCommand("btn_connetti");
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 100, 40));
-
-        jButton6.setBackground(new java.awt.Color(45, 92, 107));
-        jButton6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Avvia Server");
-        jButton6.setToolTipText("");
-        jButton6.setActionCommand("btn_connetti");
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 100, 40));
-
-        jButton7.setBackground(new java.awt.Color(45, 92, 107));
-        jButton7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Avvia Server");
-        jButton7.setToolTipText("");
-        jButton7.setActionCommand("btn_connetti");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 100, 40));
-
-        jButton8.setBackground(new java.awt.Color(45, 92, 107));
-        jButton8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Avvia Server");
-        jButton8.setToolTipText("");
-        jButton8.setActionCommand("btn_connetti");
-        jButton8.setBorder(null);
-        jButton8.setBorderPainted(false);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 100, 40));
-
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("MESSAGGIO");
+        jLabel8.setText("Message");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
@@ -278,13 +149,13 @@ public class ServerUI extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 240, -1));
+        jPanel3.add(jScrollPane1, new AbsoluteConstraints(470, 310, 240, -1));
 
         btn_decripta.setBackground(new java.awt.Color(45, 92, 107));
         btn_decripta.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btn_decripta.setForeground(new java.awt.Color(255, 255, 255));
         btn_decripta.setIcon(new javax.swing.ImageIcon("src/main/resources/unlock1.png")); // NOI18N
-        btn_decripta.setText(" Decripta ");
+        btn_decripta.setText(" Decrypt ");
         btn_decripta.setToolTipText("");
         btn_decripta.setActionCommand("btn_connetti");
         btn_decripta.setBorder(null);
@@ -301,7 +172,7 @@ public class ServerUI extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("MESSAGGIO RICEVUTO");
+        jLabel7.setText("MESSAGE RECEIVED");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 20));
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
@@ -314,7 +185,7 @@ public class ServerUI extends javax.swing.JFrame {
 
         txtReceivedMessage.setFont(new java.awt.Font("Century Gothic", 1, 17)); // NOI18N
         txtReceivedMessage.setForeground(new java.awt.Color(255, 153, 51));
-        txtReceivedMessage.setText("messaggio ricevuto");
+        txtReceivedMessage.setText("message received");
         jPanel3.add(txtReceivedMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 71, 580, 40));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 800, 140));
@@ -331,11 +202,6 @@ public class ServerUI extends javax.swing.JFrame {
         txt_msg.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         txt_msg.setForeground(new java.awt.Color(255, 153, 51));
         txt_msg.setBorder(null);
-        txt_msg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_msgActionPerformed(evt);
-            }
-        });
         getContentPane().add(txt_msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 490, -1));
 
         jPanel1.setBackground(new java.awt.Color(32, 32, 95));
@@ -345,7 +211,7 @@ public class ServerUI extends javax.swing.JFrame {
         btn_cripta.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btn_cripta.setForeground(new java.awt.Color(255, 255, 255));
         btn_cripta.setIcon(new javax.swing.ImageIcon("src/main/resources/lucchetto.png")); // NOI18N
-        btn_cripta.setText("Cripta  Messaggio");
+        btn_cripta.setText("Encrypt Message");
         btn_cripta.setToolTipText("");
         btn_cripta.setActionCommand("btn_connetti");
         btn_cripta.setBorder(null);
@@ -361,7 +227,7 @@ public class ServerUI extends javax.swing.JFrame {
         btn_invia.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btn_invia.setForeground(new java.awt.Color(255, 255, 255));
         btn_invia.setIcon(new javax.swing.ImageIcon("src/main/resources/send.png")); // NOI18N
-        btn_invia.setText("Invia Messaggio");
+        btn_invia.setText("Send Message");
         btn_invia.setToolTipText("");
         btn_invia.setActionCommand("btn_connetti");
         btn_invia.setBorder(null);
@@ -371,50 +237,45 @@ public class ServerUI extends javax.swing.JFrame {
                 btn_inviaActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_invia, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 190, 40));
+        jPanel1.add(btn_invia, new AbsoluteConstraints(590, 240, 190, 40));
 
-        btn_cancella.setBackground(new java.awt.Color(32, 32, 95));
-        btn_cancella.setIcon(new javax.swing.ImageIcon("src/main/resources/cancel.png")); // NOI18N
-        btn_cancella.setBorder(null);
-        btn_cancella.setBorderPainted(false);
-        btn_cancella.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(32, 32, 95));
+        btnCancel.setIcon(new javax.swing.ImageIcon("src/main/resources/cancel.png")); // NOI18N
+        btnCancel.setBorder(null);
+        btnCancel.setBorderPainted(false);
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancellaActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cancella, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
 
-        btn_chiave.setBackground(new java.awt.Color(45, 92, 107));
-        btn_chiave.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btn_chiave.setForeground(new java.awt.Color(255, 255, 255));
-        btn_chiave.setIcon(new javax.swing.ImageIcon("src/main/resources/chiave.png")); // NOI18N
-        btn_chiave.setText("Genera Chiave");
-        btn_chiave.setToolTipText("");
-        btn_chiave.setActionCommand("btn_connetti");
-        btn_chiave.setBorder(null);
-        btn_chiave.setBorderPainted(false);
-        btn_chiave.addActionListener(new java.awt.event.ActionListener() {
+        btnKey.setBackground(new java.awt.Color(45, 92, 107));
+        btnKey.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnKey.setForeground(new java.awt.Color(255, 255, 255));
+        btnKey.setIcon(new javax.swing.ImageIcon("src/main/resources/chiave.png")); // NOI18N
+        btnKey.setText("Generate Key");
+        btnKey.setToolTipText("");
+        btnKey.setActionCommand("btn_connetti");
+        btnKey.setBorder(null);
+        btnKey.setBorderPainted(false);
+        btnKey.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_chiaveActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_chiave, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 180, 40));
+        jPanel1.add(btnKey, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 180, 40));
 
         txt_chiave.setBackground(new java.awt.Color(32, 32, 95));
         txt_chiave.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         txt_chiave.setForeground(new java.awt.Color(255, 153, 51));
         txt_chiave.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_chiave.setBorder(null);
-        txt_chiave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_chiaveActionPerformed(evt);
-            }
-        });
         jPanel1.add(txt_chiave, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 160, 30));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("CHIAVE");
+        jLabel6.setText("KEY");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, 20));
 
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
@@ -423,63 +284,38 @@ public class ServerUI extends javax.swing.JFrame {
 
         jLabel10.setFont(new Font("Century Gothic", 1, 16)); // NOI18N
         jLabel10.setForeground(new Color(255, 255, 255));
-        jLabel10.setText("MESSAGGIO CRIPTATO");
+        jLabel10.setText("ENCRYPTED MESSAGE");
         jPanel1.add(jLabel10, new AbsoluteConstraints(40, 220, 200, -1));
 
         getContentPane().add(jPanel1, new AbsoluteConstraints(190, 0, 800, 330));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-
-
-    private void btn_connettiActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btn_connettiActionPerformed
-        int port;
-
-        port = Integer.parseInt(txtPort.getText());
-        server.setPort(port);
-
-
-        Thread connection = new Thread(server);
-        connection.start();
     }
 
-    private void txt_portaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txt_portaActionPerformed
 
-    }//GEN-LAST:event_txt_portaActionPerformed
 
-    private void jButton2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btn_connettiActionPerformed(ActionEvent evt) {
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        try {
+            server.setPort(txtPort.getText());
+            Thread connection = new Thread(server);
+            connection.start();
+        } catch (Exception e) {
+            showCustomMessage(this, e.getMessage(), "Error", 0, null);
+            txtPort.setText("");
+        }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void btn_criptaActionPerformed(ActionEvent evt) {
 
         String message = txt_msg.getText();
-        String key = txt_chiave.getText();try {
+        String key = txt_chiave.getText();
+
+        try {
             String keyEncrypted = server.encryptMessage(message, key);
             txt_msgCriptato.setText(keyEncrypted);
             showCustomMessage(this, "The message has been ecrypted!",
@@ -495,8 +331,8 @@ public class ServerUI extends javax.swing.JFrame {
         txt_chiave.setText(key);
 
         showCustomMessage(this,
-                "Chiave generata con successo!",
-                "Notifica" ,
+                "Key generated!",
+                "Notification" ,
                 -1,
                 "src/main/resources/chiaveDialogo.png");
     }
@@ -526,7 +362,7 @@ public class ServerUI extends javax.swing.JFrame {
 
     }
 
-    private void btn_decriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_decriptaActionPerformed
+    private void btn_decriptaActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             String decryptedMessage = CryptMessage.decrypt(messageReceived, keyReceived);
             txtReceivedMessage.setText(decryptedMessage);
@@ -537,36 +373,17 @@ public class ServerUI extends javax.swing.JFrame {
         }
     }
 
-    private void txt_chiaveActionPerformed(java.awt.event.ActionEvent evt) {
-    }
-
-    private void txt_msgActionPerformed(java.awt.event.ActionEvent evt) {
-    }
-
     private void btn_cancellaActionPerformed(java.awt.event.ActionEvent evt) {
         txt_msg.setText("");
     }
 
-    private void txt_statoActionPerformed(java.awt.event.ActionEvent evt) {
-    }
-
-
-
-
-
-    private JButton btn_cancella;
-    private JButton btn_chiave;
+    private JButton btnCancel;
+    private JButton btnKey;
     private JButton btn_connetti;
     private JButton btn_cripta;
     private JButton btn_decripta;
     private JButton btn_invia;
     private JButton jButton2;
-    private JButton jButton3;
-    private JButton jButton4;
-    private JButton jButton5;
-    private JButton jButton6;
-    private JButton jButton7;
-    private JButton jButton8;
     private JLabel jLabel1;
     private JLabel jLabel10;
     private JLabel jLabel2;
