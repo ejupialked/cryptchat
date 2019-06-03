@@ -57,7 +57,7 @@ public class CryptMessage {
         byte[] decodedValue = Base64.decode(encryptedMessage);
         byte[] decValue =c.doFinal(decodedValue);
 
-        String decryptedValue =new String (decValue);
+        String decryptedValue = new String (decValue);
         return decryptedValue;
 
     }

@@ -17,6 +17,8 @@ import javax.swing.*;
 public class ServerUI extends javax.swing.JFrame {
 
     private Server server;
+    private String messageReceived;
+    private String keyReceived;
 
 
     public ServerUI(Server server) {
@@ -437,6 +439,7 @@ public class ServerUI extends javax.swing.JFrame {
         port = Integer.parseInt(txtPort.getText());
         server.setPort(port);
 
+
         Thread connection = new Thread(server);
         connection.start();
     }
@@ -476,9 +479,7 @@ public class ServerUI extends javax.swing.JFrame {
     private void btn_criptaActionPerformed(ActionEvent evt) {
 
         String message = txt_msg.getText();
-        String key = txt_chiave.getText();
-
-        try {
+        String key = txt_chiave.getText();try {
             String keyEncrypted = server.encryptMessage(message, key);
             txt_msgCriptato.setText(keyEncrypted);
             showCustomMessage(this, "The message has been ecrypted!",
@@ -490,8 +491,8 @@ public class ServerUI extends javax.swing.JFrame {
 
     private void btn_chiaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chiaveActionPerformed
 
-        chiaveGenerata = CryptMessage.generateKey();
-        txt_chiave.setText(chiaveGenerata);
+        String key = CryptMessage.generateKey();
+        txt_chiave.setText(key);
 
         showCustomMessage(this,
                 "Chiave generata con successo!",
@@ -511,76 +512,43 @@ public class ServerUI extends javax.swing.JFrame {
     }
 
     private void btn_inviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inviaActionPerformed
-
-        Thread t = new Thread(new Runnable() {
-            public void run() {
-
-
-                try {
-                    messaggioDaInviare = txt_msgCriptato.getText();
-
-                    if(messaggioDaInviare == "")
-                    {
-                        JOptionPane.showMessageDialog(null, "Compilare tutti i campi!", "Errore",
-                                JOptionPane.ERROR_MESSAGE);
-
-                    }
-                    String data = chiaveGenerata + "/#&#/" + messaggioDaInviare;
-                    dOS.writeUTF(data);
-                    dOS.flush();
-                    JLabel label = new JLabel("Messaggio inviato con successo!");
-                    label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-                    ImageIcon icon = new ImageIcon(("src/main/resources/lockDialogo.png"));
-                    JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
-
-                } catch (IOException ex) {
-                }
-
-
-
-
-            }
-        });
-
-        t.start();
-
-
-    }//GEN-LAST:event_btn_inviaActionPerformed
-
-    private void btn_decriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_decriptaActionPerformed
+        String message = txt_msgCriptato.getText();
+        String key = txt_chiave.getText();
 
         try {
-            decryptedMessage = CryptMessage.decrypt(messaggioRicevuto, chiaveRicevuta);
-            txtReceivedMessage.setText(decryptedMessage);
-
-
-            JLabel label = new JLabel("Messaggio Decriptato!");
-            label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-            ImageIcon icon = new ImageIcon(("src/main/resources/unlock.png"));
-            JOptionPane.showMessageDialog(null,label,"Notifica",JOptionPane.DEFAULT_OPTION,icon);
-
-        } catch (Exception ex) {
-
+            server.sendMessage(message, key);
+            showCustomMessage(this, "Your message has been sent",
+                    "Notification", -1,
+                    "src/main/resources/lockDialogo.png");
+        } catch (Exception e) {
+            showCustomMessage(this, e.getMessage(),"Error", 0, null);
         }
 
+    }
 
-    }//GEN-LAST:event_btn_decriptaActionPerformed
+    private void btn_decriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_decriptaActionPerformed
+        try {
+            String decryptedMessage = CryptMessage.decrypt(messageReceived, keyReceived);
+            txtReceivedMessage.setText(decryptedMessage);
+            showCustomMessage(this, "Messaggio Decriptato!", "Notification",
+                    -1, "src/main/resources/unlock.png" );
+        } catch (Exception e) {
+            showCustomMessage(this, "Error decryption", "error", -1,null);
+        }
+    }
 
-    private void txt_chiaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_chiaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_chiaveActionPerformed
+    private void txt_chiaveActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
-    private void txt_msgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_msgActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_msgActionPerformed
+    private void txt_msgActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
-    private void btn_cancellaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancellaActionPerformed
+    private void btn_cancellaActionPerformed(java.awt.event.ActionEvent evt) {
         txt_msg.setText("");
-    }//GEN-LAST:event_btn_cancellaActionPerformed
+    }
 
-    private void txt_statoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_statoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_statoActionPerformed
+    private void txt_statoActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
 
 

@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.security.spec.ECField;
 
 public class Server implements Runnable{
 
@@ -31,6 +32,10 @@ public class Server implements Runnable{
             e.printStackTrace();
         }
 
+    }
+
+    public String getIpHost() {
+        return ipHost;
     }
 
     public void setPort(int port) {
@@ -109,6 +114,34 @@ public class Server implements Runnable{
 
 
         }
+
+    }
+
+
+
+    public void sendMessage(String message, String key) throws Exception{
+
+        if(message.isEmpty()){
+            throw new Exception("You must enter a message.");
+        }
+        try {
+            objectOutputStream.flush();
+            String data = key + "/#&#/" + message;
+            objectOutputStream.writeObject(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String decryptMessage(String message, String key) {
+
+        try {
+            return CryptMessage.decrypt(message, key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "not possible";
 
     }
 
