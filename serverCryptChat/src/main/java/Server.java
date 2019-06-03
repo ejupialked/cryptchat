@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -66,9 +65,7 @@ public class Server implements Runnable{
 
         try {
             socket = serverSocket.accept();
-
             serverUI.showConnectionEstablished(); //UI
-
 
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
@@ -90,7 +87,6 @@ public class Server implements Runnable{
 
         openConnection(port);
 
-
         while(isConnected){
 
             String messsage = null;
@@ -104,8 +100,9 @@ public class Server implements Runnable{
                 int fineMessaggio = messsage.length();
 
                 keyReceived = messsage.substring(inizioChiave, fineChiave);
+                serverUI.setKeyReceived(keyReceived);
                 messageReceived = messsage.substring(inizioMessaggio, fineMessaggio);
-                serverUI.getTxtReceivedMessage().setText(messageReceived);
+                serverUI.setKeyReceived(messageReceived);
 
                 new Thread(() ->{
                     serverUI.showCustomMessage(serverUI, "You have just received a message",
@@ -117,10 +114,6 @@ public class Server implements Runnable{
             }catch (Exception e){
 
             }
-
-
-
-
         }
 
     }

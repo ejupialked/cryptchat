@@ -120,7 +120,7 @@ public class ServerUI extends javax.swing.JFrame {
         txtStatus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         txtStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtStatus.setBorder(null);
-        jPanel2.add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 190, 30));
+        jPanel2.add(txtStatus, new AbsoluteConstraints(0, 370, 190, 30));
 
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator3.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -138,13 +138,13 @@ public class ServerUI extends javax.swing.JFrame {
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 510, 20));
 
         jPanel3.setBackground(new java.awt.Color(0, 79, 153));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51), 3));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 51), 3));
+        jPanel3.setLayout(new AbsoluteLayout());
 
-        jScrollPane1.setBackground(new java.awt.Color(0, 122, 153));
+        jScrollPane1.setBackground(new Color(0, 122, 153));
         jScrollPane1.setBorder(null);
 
-        jTextArea1.setBackground(new java.awt.Color(0, 114, 150));
+        jTextArea1.setBackground(new Color(0, 114, 150));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -295,7 +295,6 @@ public class ServerUI extends javax.swing.JFrame {
 
 
     private void btn_connettiActionPerformed(ActionEvent evt) {
-
         try {
             server.setPort(txtPort.getText());
             Thread connection = new Thread(server);
@@ -304,14 +303,11 @@ public class ServerUI extends javax.swing.JFrame {
             showCustomMessage(this, e.getMessage(), "Error", 0, null);
             txtPort.setText("");
         }
-
-
     }
 
 
 
     private void btn_criptaActionPerformed(ActionEvent evt) {
-
         String message = txt_msg.getText();
         String key = txt_chiave.getText();
 
@@ -326,7 +322,6 @@ public class ServerUI extends javax.swing.JFrame {
     }
 
     private void btn_chiaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chiaveActionPerformed
-
         String key = CryptMessage.generateKey();
         txt_chiave.setText(key);
 
@@ -371,6 +366,16 @@ public class ServerUI extends javax.swing.JFrame {
         } catch (Exception e) {
             showCustomMessage(this, "Error decryption", "error", -1,null);
         }
+    }
+
+
+    public void setMessageReceived(String messageReceived) {
+        this.messageReceived = messageReceived;
+        txtReceivedMessage.setText(messageReceived);
+    }
+
+    public void setKeyReceived(String keyReceived) {
+        this.keyReceived = keyReceived;
     }
 
     private void btn_cancellaActionPerformed(java.awt.event.ActionEvent evt) {
