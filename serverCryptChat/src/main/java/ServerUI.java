@@ -85,12 +85,12 @@ public class ServerUI extends javax.swing.JFrame {
         jSeparator1.setFont(new Font("sansserif", 1, 12));
         jPanel2.add(jSeparator1, new AbsoluteConstraints(80, 250, 70, 10));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("src/main/resources/Webp.net-resizeimage.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("src/main/resources/Webp.net-resizeimage (1).png")); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, 40));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("");
+        jLabel5.setText("BALBLA");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 170, 20));
 
         btn_connetti.setBackground(new Color(45, 92, 107));
