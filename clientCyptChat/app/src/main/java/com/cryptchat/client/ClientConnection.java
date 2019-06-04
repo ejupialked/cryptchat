@@ -99,7 +99,7 @@ public class ClientConnection implements Runnable, Parcelable {
                 keyReceived = messsage.substring(inizioChiave, fineChiave);
                 chatActivity.setKeyReceived(keyReceived);
                 messageReceived = messsage.substring(inizioMessaggio, fineMessaggio);
-                chatActivity.setKeyReceived(messageReceived);
+                chatActivity.setMessageReceived(messageReceived);
 
             }catch (Exception e){
 

@@ -21,6 +21,7 @@ public class ChatActivity extends AppCompatActivity {
     ImageButton btnKey;
     ImageButton btnSend;
     Button btnDecrypt;
+    Button btnEncrypt;
 
 
     String messageReceived;
@@ -37,6 +38,7 @@ public class ChatActivity extends AppCompatActivity {
         txtReceivedMsg = findViewById(R.id.txtReceivedMsg);
 
         btnKey = findViewById(R.id.btnKey);
+        btnEncrypt = findViewById(R.id.btnEncrypt);
         btnSend = findViewById(R.id.btnSend);
         btnDecrypt= findViewById(R.id.btnDecrypt);
 
@@ -54,6 +56,19 @@ public class ChatActivity extends AppCompatActivity {
         });
 
 
+        btnEncrypt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = txtMsg.getText().toString();
+                String key =   txtKey.getText().toString();
+                try {
+                    txtEncryptedMsg.setText(CryptMessage.encrypt(message, key));
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         btnDecrypt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +84,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    String message = txtMsg.getText().toString();
+                    String message = txtEncryptedMsg.getText().toString();
                     String key = txtKey.getText().toString();
 
                     clientConnection.sendMessage(message, key);

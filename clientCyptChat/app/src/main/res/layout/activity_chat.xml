@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toEndOf="@+id/txtEncryptedMsg"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cripta"
+        app:layout_constraintTop_toBottomOf="@+id/btnEncrypt"
         app:srcCompat="@drawable/sendd"
         tools:layout_conversion_wrapHeight="210"
         tools:layout_conversion_wrapWidth="210" />
@@ -148,7 +148,7 @@
         tools:layout_conversion_wrapWidth="591" />
 
     <Button
-        android:id="@+id/btn_cripta"
+        android:id="@+id/btnEncrypt"
         style="@style/button_style"
         android:layout_width="218dp"
         android:layout_height="51dp"
@@ -183,7 +183,7 @@
         android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtReceivedMsg"
-        app:layout_constraintEnd_toEndOf="@+id/btn_cripta"
+        app:layout_constraintEnd_toEndOf="@+id/btnEncrypt"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_conversion_wrapHeight="289"
