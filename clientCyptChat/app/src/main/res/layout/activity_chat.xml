@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:paddingLeft="3dp"
     android:paddingTop="20sp"
     android:paddingRight="3dp"
-    android:background="@drawable/onlinesecurity"
-    tools:context=".MainActivity">
+    tools:context=".ChatActivity">
 
 
     <ImageButton
@@ -18,34 +19,64 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
 
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
         android:adjustViewBounds="true"
         android:background="#00000000"
         android:cropToPadding="false"
         android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toEndOf="@+id/txt_msgCriptato"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cripta"
         app:srcCompat="@drawable/sendd"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/btn_key" />
+        tools:layout_conversion_wrapHeight="210"
+        tools:layout_conversion_wrapWidth="210" />
+
+
+    <ImageButton
+        android:id="@+id/btn_key"
+        android:layout_width="61dp"
+        android:layout_height="57dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:background="#00000000"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toEndOf="@+id/txt_key"
+        app:layout_constraintTop_toBottomOf="@+id/txt_msg"
+        app:srcCompat="@drawable/keyIC"
+        tools:layout_conversion_wrapHeight="210"
+        tools:layout_conversion_wrapWidth="210" />
 
     <TextView
-        android:paddingLeft="12sp"
-        android:paddingRight="12sp"
-        android:paddingTop="5sp"
-        android:paddingBottom="5sp"
-        android:textStyle="bold"
         android:id="@+id/txt_msgRicevuto2"
         style="@style/textview"
-        android:layout_width="240sp"
-        android:textColor="#ffffff"
-        android:layout_height="185sp"
-        android:textSize="21sp"
+        android:layout_width="232dp"
+        android:layout_height="174dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="28dp"
         android:gravity="left"
         android:hint="messaggio ricevuto"
-        android:textColorHint="#ffffff"
-        android:layout_marginLeft="10sp"
+        android:paddingLeft="12sp"
+        android:paddingTop="5sp"
+        android:paddingRight="12sp"
 
-        android:layout_marginBottom="13dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/btn_key" />
+        android:paddingBottom="5sp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_wrapHeight="486"
+        tools:layout_conversion_wrapWidth="630" />
 
     <Button
         android:id="@+id/btn_decripta1"
@@ -54,81 +85,107 @@
         android:layout_width="50sp"
         android:layout_height="180sp"
 
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="D\ne\nc\nr\ni\np\nt\na\n"
-        android:layout_alignBottom="@+id/txt_msgRicevuto2"
-        android:layout_alignEnd="@+id/btn_invia" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toEndOf="@+id/txt_msgRicevuto2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_invia"
+        app:layout_constraintVertical_bias="0.893"
+        tools:layout_conversion_wrapHeight="473"
+        tools:layout_conversion_wrapWidth="131" />
 
-    <Button
-        android:id="@+id/btn_key"
-        style="@style/button_style"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:text="Genera\n Chiave"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/txt_msg"
-        android:layout_alignParentEnd="true" />
 
     <EditText
 
         android:id="@+id/txt_msg"
-        android:paddingLeft="8dp"
-        android:paddingStart="8dp"
         style="@style/editText_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="346dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+
         android:ems="10"
-        android:textStyle="bold"
+        android:hint="insert message"
         android:imeOptions="actionDone"
         android:inputType="textPersonName"
-        android:hint="inserisci messaggio"
-
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="27dp"
-        android:layout_alignEnd="@+id/btn_key" />
+        android:paddingStart="8dp"
+        android:paddingLeft="8dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_wrapHeight="92"
+        tools:layout_conversion_wrapWidth="1012" />
 
     <EditText
         android:id="@+id/txt_key"
         style="@style/editText_style"
-        android:gravity="center"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="#fa0206"
-        android:imeOptions="actionDone"
+        android:layout_width="234dp"
+        android:layout_height="37dp"
 
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Insert key (max 16)"
+        android:imeOptions="actionDone"
+        android:inputType="textPersonName"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
-        android:inputType="textPersonName"
-        android:hint="inseirire chiave (max 16)"
-        android:layout_alignBottom="@+id/btn_key"
-        android:layout_alignStart="@+id/txt_msg" />
+        android:textColor="#fa0206"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_key"
+        app:layout_constraintStart_toStartOf="@+id/txt_msg"
+        app:layout_constraintTop_toBottomOf="@+id/txt_msg"
+        app:layout_constraintVertical_bias="0.89"
+        tools:layout_conversion_wrapHeight="92"
+        tools:layout_conversion_wrapWidth="591" />
 
     <Button
-        style="@style/button_style"
         android:id="@+id/btn_cripta"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Cripta messaggio"
-        android:layout_below="@+id/txt_key"
-        android:layout_toStartOf="@+id/btn_key"
-        android:layout_marginEnd="47dp" />
+        style="@style/button_style"
+        android:layout_width="218dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Encrypt Message"
+        app:layout_constraintBottom_toTopOf="@+id/txt_msgCriptato"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_key"
+        tools:layout_conversion_wrapHeight="126"
+        tools:layout_conversion_wrapWidth="525" />
 
     <TextView
         android:id="@+id/txt_msgCriptato"
-        android:layout_width="200sp"
-        android:layout_height="110sp"
-        android:paddingLeft="12sp"
-        android:paddingRight="12sp"
-        android:paddingTop="5sp"
-        android:textStyle="bold"
-        android:paddingBottom="5sp"
-        android:textSize="22dp"
-        android:textColor="#ffffff"
-
         style="@style/textview"
-        android:textColorHint="#ffffff"
+        android:layout_width="243dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginBottom="68dp"
         android:hint="Messaggio criptato"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/txt_msgRicevuto2" />
-</RelativeLayout>
+        android:paddingLeft="12sp"
+        android:paddingTop="5sp"
+        android:paddingRight="12sp"
+        android:paddingBottom="5sp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txt_msgRicevuto2"
+        app:layout_constraintEnd_toEndOf="@+id/btn_cripta"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_wrapHeight="289"
+        tools:layout_conversion_wrapWidth="525" />
+</android.support.constraint.ConstraintLayout>
