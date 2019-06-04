@@ -15,7 +15,7 @@
 
 
     <ImageButton
-        android:id="@+id/btn_invia"
+        android:id="@+id/btnSend"
         android:layout_width="80dp"
         android:layout_height="80dp"
 
@@ -28,7 +28,7 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toEndOf="@+id/txt_msgCriptato"
+        app:layout_constraintStart_toEndOf="@+id/txtEncryptedMsg"
         app:layout_constraintTop_toBottomOf="@+id/btn_cripta"
         app:srcCompat="@drawable/sendd"
         tools:layout_conversion_wrapHeight="210"
@@ -36,7 +36,7 @@
 
 
     <ImageButton
-        android:id="@+id/btn_key"
+        android:id="@+id/btnKey"
         android:layout_width="61dp"
         android:layout_height="57dp"
 
@@ -49,14 +49,14 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toEndOf="@+id/txt_key"
-        app:layout_constraintTop_toBottomOf="@+id/txt_msg"
-        app:srcCompat="@drawable/keyIC"
+        app:layout_constraintStart_toEndOf="@+id/txtKey"
+        app:layout_constraintTop_toBottomOf="@+id/txtMsg"
+        app:srcCompat="@drawable/key"
         tools:layout_conversion_wrapHeight="210"
         tools:layout_conversion_wrapWidth="210" />
 
     <TextView
-        android:id="@+id/txt_msgRicevuto2"
+        android:id="@+id/txtReceivedMsg"
         style="@style/textview"
         android:layout_width="232dp"
         android:layout_height="174dp"
@@ -79,7 +79,7 @@
         tools:layout_conversion_wrapWidth="630" />
 
     <Button
-        android:id="@+id/btn_decripta1"
+        android:id="@+id/btnDecrypt"
         style="@style/button_style"
 
         android:layout_width="50sp"
@@ -93,8 +93,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.459"
-        app:layout_constraintStart_toEndOf="@+id/txt_msgRicevuto2"
-        app:layout_constraintTop_toBottomOf="@+id/btn_invia"
+        app:layout_constraintStart_toEndOf="@+id/txtReceivedMsg"
+        app:layout_constraintTop_toBottomOf="@+id/btnSend"
         app:layout_constraintVertical_bias="0.893"
         tools:layout_conversion_wrapHeight="473"
         tools:layout_conversion_wrapWidth="131" />
@@ -102,7 +102,7 @@
 
     <EditText
 
-        android:id="@+id/txt_msg"
+        android:id="@+id/txtMsg"
         style="@style/editText_style"
         android:layout_width="346dp"
         android:layout_height="37dp"
@@ -124,7 +124,7 @@
         tools:layout_conversion_wrapWidth="1012" />
 
     <EditText
-        android:id="@+id/txt_key"
+        android:id="@+id/txtKey"
         style="@style/editText_style"
         android:layout_width="234dp"
         android:layout_height="37dp"
@@ -140,9 +140,9 @@
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         android:textColor="#fa0206"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_key"
-        app:layout_constraintStart_toStartOf="@+id/txt_msg"
-        app:layout_constraintTop_toBottomOf="@+id/txt_msg"
+        app:layout_constraintBottom_toBottomOf="@+id/btnKey"
+        app:layout_constraintStart_toStartOf="@+id/txtMsg"
+        app:layout_constraintTop_toBottomOf="@+id/txtMsg"
         app:layout_constraintVertical_bias="0.89"
         tools:layout_conversion_wrapHeight="92"
         tools:layout_conversion_wrapWidth="591" />
@@ -157,15 +157,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Encrypt Message"
-        app:layout_constraintBottom_toTopOf="@+id/txt_msgCriptato"
+        app:layout_constraintBottom_toTopOf="@+id/txtEncryptedMsg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_key"
+        app:layout_constraintTop_toBottomOf="@+id/btnKey"
         tools:layout_conversion_wrapHeight="126"
         tools:layout_conversion_wrapWidth="525" />
 
     <TextView
-        android:id="@+id/txt_msgCriptato"
+        android:id="@+id/txtEncryptedMsg"
         style="@style/textview"
         android:layout_width="243dp"
         android:layout_height="115dp"
@@ -182,7 +182,7 @@
         android:textColorHint="#ffffff"
         android:textSize="22dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txt_msgRicevuto2"
+        app:layout_constraintBottom_toTopOf="@+id/txtReceivedMsg"
         app:layout_constraintEnd_toEndOf="@+id/btn_cripta"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
