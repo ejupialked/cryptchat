@@ -45,6 +45,8 @@ public class CryptMessage {
         return encryptedValue;
 
     }
+
+
     public static String decrypt(String encryptedMessage, String key) throws Exception
     {
         byte[] byteKey = key.getBytes();
@@ -59,6 +61,31 @@ public class CryptMessage {
 
         String decryptedValue = new String (decValue);
         return decryptedValue;
+
+    }
+
+
+
+    public static String decryptMessage(String message, String key) {
+
+        try {
+            return CryptMessage.decrypt(message, key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "not possible";
+
+    }
+
+    public static String encryptMessage(String message, String key) throws Exception{
+        if(key.length() != 16 && key.length() != 0){
+            throw new Exception("The key must be 16 characters.");
+        }else if(key.length() == 0){
+            throw new Exception("Key not inserted");
+        }
+
+        return CryptMessage.encrypt(message, key);
 
     }
 

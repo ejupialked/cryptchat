@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15d22dde-4a80-4afa-85b1-a749a1b4f5db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ChatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ChatActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ClientConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ClientConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/res/layout/activity_chat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/res/layout/activity_chat.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -274,7 +271,7 @@
       <workItem from="1559507030665" duration="7693000" />
       <workItem from="1559554793168" duration="6452000" />
       <workItem from="1559660826999" duration="2576000" />
-      <workItem from="1559671684592" duration="381000" />
+      <workItem from="1559671684592" duration="988000" />
     </task>
     <task id="LOCAL-00001" summary="add dependency netbeans lib">
       <created>1559241810988</created>
@@ -350,13 +347,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24018000" />
+    <option name="totallyTimeSpent" value="24625000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" x="41" y="267" width="644" height="647" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1072572" />
+      <window_info content_ui="combo" x="41" y="267" width="644" height="647" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1072572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -366,7 +362,7 @@
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4994664" weight="0.32975295" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49839914" visible="true" weight="0.26100966" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49839914" weight="0.26100966" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2867884" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
