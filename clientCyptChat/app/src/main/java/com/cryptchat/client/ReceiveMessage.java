@@ -10,8 +10,8 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
     private ObjectInputStream ois;
     private ReceiveMessageResponse receiveMessageResponse;
 
-    ReceiveMessage(ReceiveMessageResponse response){
-        this.receiveMessageResponse = response;
+    public ReceiveMessage() {
+
     }
 
     @Override
@@ -34,7 +34,7 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
         String message = values[0];
 
         receiveMessageResponse.notifyUserMessageReceived();
-        receiveMessageResponse.showMessageReceived(message);
+        receiveMessageResponse.showEncryptedMessageReceived(message);
     }
 
     public String readMessage(){
@@ -42,9 +42,8 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
 
         try {
             message = ois.readUTF();
-            message = CryptMessage.decrypt(message);
         }catch (Exception e){
-            receiveMessageResponse.showError(e.getMessage());
+            receiveMessageResponse.showError(e.getLocalizedMessage());
         }
 
         return message;
@@ -68,9 +67,13 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
         }
     }
 
+    public void setResponse(ReceiveMessageResponse response) {
+        this.receiveMessageResponse = response;
+    }
+
     public interface ReceiveMessageResponse {
         void notifyUserMessageReceived();
-        void showMessageReceived(String message);
+        void showEncryptedMessageReceived(String message);
         void showError(String error);
     }
 }

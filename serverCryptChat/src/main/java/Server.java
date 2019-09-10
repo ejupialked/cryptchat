@@ -1,7 +1,5 @@
 import java.awt.*;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -9,9 +7,13 @@ import java.net.UnknownHostException;
 
 public class Server implements Runnable{
 
-    private String ipHost;
+    private InetAddress ipHost;
     private ServerUI serverUI;
     private int port;
+
+
+    private String ip = "172.16.5.124" +
+            "";
 
     private ServerSocket serverSocket;
     private Socket socket;
@@ -25,15 +27,17 @@ public class Server implements Runnable{
 
         try {
             InetAddress localhost = InetAddress.getLocalHost();
-            this.ipHost = localhost.getHostAddress();
+            this.ipHost = localhost;
             System.err.println(ipHost);
+
+
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
 
     }
 
-    public String getIpHost() {
+    public InetAddress getIpHost() {
         return ipHost;
     }
 
@@ -47,7 +51,11 @@ public class Server implements Runnable{
         }
 
         this.port = intPort;
+
+
+
     }
+
 
     public void openConnection(int port){
         this.port = port;
@@ -67,8 +75,8 @@ public class Server implements Runnable{
             socket = serverSocket.accept();
             serverUI.showConnectionEstablished(); //UI
 
-            objectInputStream = new ObjectInputStream(socket.getInputStream());
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
 
         } catch (IOException e) {
             serverUI.showCustomMessage(serverUI, "Invalid port number", "Error", 0, null);
@@ -92,7 +100,9 @@ public class Server implements Runnable{
             String messsage = null;
 
             try {
-                messsage = (String) objectInputStream.readObject();
+                messsage = (String) objectInputStream.readUTF();
+
+
 
                 int fineChiave = messsage.indexOf("/#&#/");
                 int inizioChiave = 0;
@@ -102,7 +112,8 @@ public class Server implements Runnable{
                 keyReceived = messsage.substring(inizioChiave, fineChiave);
                 serverUI.setKeyReceived(keyReceived);
                 messageReceived = messsage.substring(inizioMessaggio, fineMessaggio);
-                serverUI.setKeyReceived(messageReceived);
+
+                serverUI.setMessageReceived(messsage);
 
                 new Thread(() ->{
                     serverUI.showCustomMessage(serverUI, "You have just received a message",
@@ -126,9 +137,11 @@ public class Server implements Runnable{
             throw new Exception("You must enter a message.");
         }
         try {
-            objectOutputStream.flush();
+
             String data = key + "/#&#/" + message;
-            objectOutputStream.writeObject(data);
+            objectOutputStream.writeUTF(data);
+            objectOutputStream.flush();
+            objectOutputStream.reset();
         } catch (IOException e) {
             e.printStackTrace();
         }

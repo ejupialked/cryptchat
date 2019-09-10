@@ -1,6 +1,6 @@
 package com.cryptchat.client;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,28 +9,31 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
+public class ChatActivity extends AppCompatActivity implements ReceiveMessage.ReceiveMessageResponse, SendMessage.SendMessageResponse {
 
-public class ChatActivity extends AppCompatActivity {
+
+    ClientApplication clientApplication;
 
     TextView txtMsg;
     TextView txtKey;
     TextView txtEncryptedMsg;
     TextView txtReceivedMsg;
 
+
     ImageButton btnKey;
     ImageButton btnSend;
     Button btnDecrypt;
     Button btnEncrypt;
 
+    private String lastEncryptedMessage;
 
-    String messageReceived;
-    String keyReceived;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        clientApplication = ((ClientApplication)getApplication());
 
         txtMsg = findViewById(R.id.txtMsg);
         txtKey= findViewById(R.id.txtKey);
@@ -42,75 +45,114 @@ public class ChatActivity extends AppCompatActivity {
         btnSend = findViewById(R.id.btnSend);
         btnDecrypt= findViewById(R.id.btnDecrypt);
 
-
-        Intent intent = getIntent();
-        final ClientConnection clientConnection = intent.getParcelableExtra("clientConnection");
-        clientConnection.setChatActivity(this);
-
-
-        btnKey.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                txtKey.setText(CryptMessage.generateKey());
-            }
-        });
-
-
-        btnEncrypt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String message = txtMsg.getText().toString();
-                String key =   txtKey.getText().toString();
-                try {
-                    txtEncryptedMsg.setText(CryptMessage.encrypt(message, key));
-                } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        btnDecrypt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                txtReceivedMsg.setText(
-                        clientConnection.decryptMessage(messageReceived, keyReceived));
-                Toast.makeText(getApplicationContext(), "Message decrypted!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    String message = txtEncryptedMsg.getText().toString();
-                    String key = txtKey.getText().toString();
-
-                    clientConnection.sendMessage(message, key);
-                    Toast.makeText(getApplicationContext(), "Message sent!", Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
-                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        clientApplication.receive(this);
     }
 
-    public TextView getTxtReceivedMsg() {
-        return txtReceivedMsg;
-    }
 
-    public void setKeyReceived(String keyReceived) {
-        this.keyReceived = keyReceived;
-    }
 
-    public void setMessageReceived(String messageReceived) {
-        this.messageReceived = messageReceived;
-        this.txtReceivedMsg.setText(messageReceived);
-        Toast.makeText(this, "You have just received a message!",
-                        Toast.LENGTH_SHORT).show();
+    public void send(View v){
+        try {
+            String message = txtMsg.getText().toString();
+            String key = txtEncryptedMsg.getText().toString();
+            clientApplication.sendMessage(message, key, this);
+        } catch (Exception e) {
+            showError(e.getMessage());
+        }
 
     }
+
+    public void generateKey(View v){
+        txtKey.setText(CryptMessage.generateKey());
+    }
+
+    public void decrypt(View v){
+        String messageDecrypted = null;
+
+        try {
+             messageDecrypted = CryptMessage.decrypt(lastEncryptedMessage);
+             txtReceivedMsg.setText(messageDecrypted);
+
+        }catch (Exception e){
+            showError("Couldn't decrypt message");
+        }
+
+    }
+
+    public void encrypt(View v){
+        String message = txtReceivedMsg.getText().toString();
+
+        String key = "error";
+
+        try {
+         key = validateKey(txtKey.getText().toString());
+        }catch (Exception e){
+            showError(e.getMessage());
+        }
+
+        String messageEncrypted = null;
+
+        try {
+            messageEncrypted = CryptMessage.encrypt(message,key);
+            txtEncryptedMsg.setText(messageEncrypted);
+
+        }catch (Exception e){
+            showError("Couldn't encrypt message");
+        }
+
+    }
+
+    @Override
+    public void showMessageSentConfirmation(){
+        showToast(this,"Message sent!");
+
+
+    }
+
+    @Override
+    public void showErrorSendingMessage() {
+        showError("Couldn't send the message");
+    }
+
+
+    private String validateKey(String key) throws Exception{
+        if(key.length() != 16){
+            throw new Exception("Key must be of 16 characters");
+        }
+
+        return key;
+    }
+
+
+    @Override
+    public void notifyUserMessageReceived() {
+        showToast(this, "You have just received a messsage!");
+    }
+
+    @Override
+    public void showEncryptedMessageReceived(String message) {
+        lastEncryptedMessage = message;
+        txtReceivedMsg.setText(CryptMessage.getEncryptedMessage(message));
+    }
+
+    @Override
+    public void showError(final String error) {
+        showToast(this, error);
+    }
+
+
+    public void showToast(final Context context, final String message){
+        new Thread()
+        {
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(context,message, Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        }.start();
+
+    }
+
 }

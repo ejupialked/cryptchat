@@ -26,6 +26,7 @@
         android:background="#00000000"
         android:cropToPadding="false"
         android:scaleType="fitXY"
+        android:onClick="send"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toEndOf="@+id/txtEncryptedMsg"
@@ -39,7 +40,7 @@
         android:id="@+id/btnKey"
         android:layout_width="61dp"
         android:layout_height="57dp"
-
+        android:onClick="generateKey"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
@@ -84,7 +85,7 @@
 
         android:layout_width="50sp"
         android:layout_height="180sp"
-
+        android:onClick="decrypt"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
@@ -152,6 +153,7 @@
         style="@style/button_style"
         android:layout_width="218dp"
         android:layout_height="51dp"
+        android:onClick="encrypt"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
