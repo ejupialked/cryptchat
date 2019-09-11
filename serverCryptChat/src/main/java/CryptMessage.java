@@ -1,65 +1,107 @@
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 import javax.crypto.Cipher;
+import javax.crypto.KeyAgreement;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.Key;
+import java.security.*;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Random;
 
 public class CryptMessage {
 
-    static String AES = "AES";
+    private static String AES = "AES";
+
+    private X509EncodedKeySpec x509KeySpec;
+
+    private KeyPairGenerator     serverKeyPair;
+    private KeyPair                 serverPair;
+    private KeyAgreement    serverKeyAgreement;
+    private KeyFactory              keyFactory;
+
+    private PrivateKey privateKey;
+    private PublicKey   publicKey;
+
+    private byte[] secretKey;
 
 
-    public static String generateKey() {
-        String key = "";
-        for (int x = 0; x < 16; x++) {
-            int c = new Random().nextInt(122 - 48) + 48;
 
-            if ((c >= 50 && c <= 64) | (c >= 91 && c <= 96)) {
-                x--;
-                continue;
-            }
+    public void generateDHKeyPair() throws NoSuchAlgorithmException {
+        serverKeyPair = KeyPairGenerator.getInstance("DH");
+        serverKeyPair.initialize(2048);
 
-            key += ((char) c);
-
-        }
-        return key;
+        serverPair = serverKeyPair.generateKeyPair();
+        privateKey = serverPair.getPrivate();
+        publicKey  = serverPair.getPublic();
     }
 
-    public static String encrypt(String message, String key) throws Exception {
-
-        byte[] byteMessage = message.getBytes();
-        byte[] byteKey = key.getBytes();
-
-
-        Key secretKey = new SecretKeySpec(byteKey, "AES");
+    public void initDHAgreement() throws NoSuchAlgorithmException, InvalidKeyException {
+        serverKeyAgreement = KeyAgreement.getInstance("DH");
+        serverKeyAgreement.init(privateKey);
+    }
 
 
-        Cipher c = Cipher.getInstance(AES);
+    public String getPublicKeyEncoded(){
+        return encodeBase64(publicKey.getEncoded());
+    }
 
-        c.init(Cipher.ENCRYPT_MODE, secretKey);
 
-        byte[] cipher = c.doFinal(byteMessage);
+    public String encodeBase64(byte[] data) {
+        return Base64.encode(data);
+    }
 
-        String encryptedValue = Base64.encode(cipher);
-        return encryptedValue;
+    public byte[] decodeBase64(String data) {
+        return Base64.decode(data);
+    }
+
+
+
+    public void receivePublicKeyFromClient(String publicKeyBase64) throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException {
+
+        byte[] pubKeyDecoded = decodeBase64(publicKeyBase64);
+
+        keyFactory = KeyFactory.getInstance("DH");
+        x509KeySpec = new X509EncodedKeySpec(pubKeyDecoded);
+
+        PublicKey publicKey1 = keyFactory.generatePublic(x509KeySpec);
+
+        serverKeyAgreement.doPhase(publicKey, true);
 
     }
-    public static String decrypt(String encryptedMessage, String key) throws Exception
-    {
-        byte[] byteKey = key.getBytes();
 
-        Key secretKey = new SecretKeySpec(byteKey, AES);
+    public byte[] generateSecretKey() {
+        return serverKeyAgreement.generateSecret();
+    }
 
-        Cipher c = Cipher.getInstance(AES);
-        c.init(Cipher.DECRYPT_MODE, secretKey);
+    public SecretKeySpec generateAESKey(byte[] secretKey){
+        return new SecretKeySpec(secretKey, 0, 16, AES);
+    }
 
-        byte[] decodedValue = Base64.decode(encryptedMessage);
-        byte[] decValue =c.doFinal(decodedValue);
 
-        String decryptedValue = new String (decValue);
-        return decryptedValue;
 
+
+    public String encrypt(String message) throws Exception {
+
+        Cipher cipher = Cipher.getInstance(AES);
+        cipher.init(Cipher.ENCRYPT_MODE, generateAESKey(secretKey));
+
+        byte[] plainText = message.getBytes();
+        byte[] cipherText = cipher.doFinal(plainText);
+
+        return encodeBase64(cipherText);
+    }
+
+
+
+    public String decrypt(String encryptedMessage) throws Exception {
+
+        Cipher cipher = Cipher.getInstance(AES);
+        cipher.init(Cipher.DECRYPT_MODE, generateAESKey(secretKey));
+
+        byte[] decodedMessage = Base64.decode(encryptedMessage);
+        byte[] recovered = cipher.doFinal(decodedMessage);
+
+        return new String(recovered);
     }
 
 }
