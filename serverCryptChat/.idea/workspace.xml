@@ -1,16 +1,318 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15d22dde-4a80-4afa-85b1-a749a1b4f5db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ClientApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/SendMessage.java" afterDir="false" />
+    <list default="true" id="15d22dde-4a80-4afa-85b1-a749a1b4f5db" name="Default Changelist" comment="implement Diffie-Hellman algorithm">
+      <change afterPath="$PROJECT_DIR$/../ccc/ccc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chatKeyAgreement/chatKeyAgreement.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/arch/core/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/arch/lifecycle/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/arch/lifecycle/livedata/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/arch/lifecycle/livedata/core/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/arch/lifecycle/viewmodel/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/asynclayoutinflater/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/compat/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/constraint/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/coordinatorlayout/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/coreui/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/coreutils/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/cursoradapter/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/customview/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/documentfile/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/drawerlayout/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/fragment/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/graphics/drawable/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/interpolator/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/loader/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/localbroadcastmanager/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/print/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/slidingpanelayout/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/swiperefreshlayout/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/v7/appcompat/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/android/support/v7/viewpager/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/androidx/versionedparcelable/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/com/cryptchat/client/R.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/generated/source/buildConfig/debug/com/cryptchat/client/BuildConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/incremental-verifier/debug/com/cryptchat/client/ClientApplication$ClientConnectionResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/incremental-verifier/debug/com/cryptchat/client/ClientApplication$Connect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/incremental-verifier/debug/com/cryptchat/client/ClientApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/incremental-verifier/debug/com/cryptchat/client/MainActivity$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/incremental-verifier/debug/com/cryptchat/client/ReceiveMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/incremental-verifier/debug/com/cryptchat/client/SendMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/cryptchat/client/ClientApplication$ClientConnectionResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/cryptchat/client/ClientApplication$Connect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/cryptchat/client/ClientApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/cryptchat/client/MainActivity$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/cryptchat/client/MainActivity$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/cryptchat/client/MainActivity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/cryptchat/client/ReceiveMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/cryptchat/client/SendMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/processed_res/debug/processDebugResources/out/output.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/processed_res/debug/processDebugResources/out/resources-debug.ap_" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/anim_abc_slide_in_top.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/color-v23_abc_tint_edittext.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/color_abc_background_cache_hint_selector_material_light.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/color_abc_hint_foreground_material_dark.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_half_black_36dp.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_48dp.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable_abc_ratingbar_indicator_material.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable_abc_ratingbar_material.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable_abc_ratingbar_small_material.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable_abc_seekbar_tick_mark_material.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable_edittext_style.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/drawable_notification_icon_background.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_checkbox.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_radio.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/layout_abc_select_dialog_material.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/layout_notification_template_part_chronometer.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/signing_config/debug/out/signing-config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/split-apk/debug/dep/dependencies.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/split-apk/debug/resources/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/split-apk/debug/slices/slice_0.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/split-apk/debug/slices/slice_1.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/split-apk/debug/slices/slice_2.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/split-apk/debug/slices/slice_3.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/split-apk/debug/slices/slice_4.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/split-apk/debug/slices/slice_5.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/14.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/16.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/17.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/18.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/19.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/20.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/21.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/23.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/24.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/27.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/28.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/29.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/30.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/31.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$style.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/loader/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/32/android/support/print/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$style.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/33/android/support/coreutils/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/constraint/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/constraint/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/constraint/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/constraint/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/cursoradapter/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/interpolator/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$style.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/android/support/swiperefreshlayout/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/34/androidx/versionedparcelable/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$style.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/compat/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$style.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/fragment/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$style.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/35/android/support/slidingpanelayout/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$style.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/asynclayoutinflater/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$style.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R$styleable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/36/android/support/drawerlayout/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R$attr.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R$color.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R$dimen.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R$drawable.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R$id.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R$integer.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R$layout.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R$string.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/37/android/support/customview/R.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/42.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/43.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/44.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/45.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/46.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/47.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/48.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/49.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/50.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/51.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/53.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/dexBuilder/debug/9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/instantRun/debug/0/com/cryptchat/client/ClientApplication$ClientConnectionResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/instantRun/debug/0/com/cryptchat/client/ClientApplication$Connect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/instantRun/debug/0/com/cryptchat/client/ClientApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/instantRun/debug/0/com/cryptchat/client/MainActivity$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/instantRun/debug/0/com/cryptchat/client/ReceiveMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/instantRun/debug/0/com/cryptchat/client/SendMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/build/intermediates/transforms/instantRunDependenciesApk/debug/__content__.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/CryptChatUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/KeyExchange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CryptChatUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ChatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ChatActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ClientService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/CryptMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/CryptMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/CryptMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ReceiveMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/ReceiveMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/SendMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/java/com/cryptchat/client/SendMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/res/layout/activity_chat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/res/layout/activity_chat.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientCyptChat/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../clientCyptChat/app/src/main/res/values/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CryptMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KeyExchange.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Webp.net-resizeimage (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cryptchat_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Webp.net-resizeimage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/androidDialogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/android_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cancel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clear_button.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/chiave.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/key_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/chiaveDialogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/key_dialog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lock.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lock_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lockDialogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lock_dialog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lockk.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locker_background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lucchetto.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lock_button.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/send.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/send_dialog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/server.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/server_button.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/transparent_text_effect--1-.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/author_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/unlock.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/unlock_dialog.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/unlock1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/unlock_button.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,52 +342,53 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2121">
-              <caret line="300" selection-start-line="300" selection-end-line="300" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#17074#17075#0" expanded="true" />
-                <element signature="e#17120#17121#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/resources/lock_button.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CryptMessage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/resources/key_dialog.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/clear_button.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/send_dialog.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/server_button.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="37" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5450#5451#0" expanded="true" />
-                <element signature="e#5490#5491#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/resources/author_logo.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/net/ServerSocket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="234" column="45" selection-start-line="234" selection-start-column="38" selection-end-line="234" selection-end-column="45" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/resources/unlock_button.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/cryptchat_logo.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/lock_dialog.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/unlock_dialog.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -106,6 +409,15 @@
       <find>png</find>
       <find>port</find>
       <find>PORT</find>
+      <find>org.netbeans.lib.awtextra.</find>
+      <find>java.awt.</find>
+      <find>event</find>
+      <find>event.</find>
+      <find>javax.swing</find>
+      <find>javax.swing.</find>
+      <find>gene</find>
+      <find>New</find>
+      <find>Exchan</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,9 +436,12 @@
         <option value="$PROJECT_DIR$/src/main/java/ServerConnection.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/CryptMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ClientHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CryptChatUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/KeyExchange.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Server.java" />
       </list>
     </option>
   </component>
@@ -146,11 +461,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="949" />
-    <option name="y" value="172" />
-    <option name="width" value="976" />
-    <option name="height" value="936" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -192,11 +506,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="serverCryptChat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="serverCryptChat" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -209,9 +518,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/CryptChat/serverCryptChat" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
@@ -282,6 +592,18 @@
       <workItem from="1567173986490" duration="4273000" />
       <workItem from="1567360365960" duration="16000" />
       <workItem from="1568119858286" duration="16384000" />
+      <workItem from="1568188711858" duration="4837000" />
+      <workItem from="1568205084019" duration="1119000" />
+      <workItem from="1568206973344" duration="1120000" />
+      <workItem from="1568232350533" duration="6486000" />
+      <workItem from="1568271483644" duration="5655000" />
+      <workItem from="1568284029840" duration="6753000" />
+      <workItem from="1568310726779" duration="9424000" />
+      <workItem from="1568406561488" duration="2242000" />
+      <workItem from="1568453244140" duration="5124000" />
+      <workItem from="1568461746939" duration="16564000" />
+      <workItem from="1568485294041" duration="15867000" />
+      <workItem from="1568538398083" duration="783000" />
     </task>
     <task id="LOCAL-00001" summary="add dependency netbeans lib">
       <created>1559241810988</created>
@@ -353,17 +675,23 @@
       <option name="project" value="LOCAL" />
       <updated>1559561279713</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="implement Diffie-Hellman algorithm">
+      <created>1568240016190</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1568240016190</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45427000" />
+    <option name="totallyTimeSpent" value="121401000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="952" y="0" width="976" height="1050" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" x="41" y="267" width="644" height="647" id="Project" order="0" sideWeight="0.6703755" weight="0.45879734" />
+      <window_info active="true" content_ui="combo" x="41" y="267" width="644" height="647" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.41728923" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -372,19 +700,19 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4994664" weight="0.32975295" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49665925" visible="true" weight="0.10783201" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946237" weight="0.28619528" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4994664" weight="0.26638025" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49665925" weight="0.032223415" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946237" weight="0.25886145" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5033408" side_tool="true" weight="0.21112372" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.36208853" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.36197636" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Terminal" order="16" />
@@ -395,14 +723,14 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.32977587" />
-      <window_info anchor="right" id="Maven" order="7" weight="0.09284952" />
+      <window_info anchor="right" id="Maven" order="7" weight="0.685307" />
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
-      <window_info anchor="right" x="0" y="0" width="434" height="866" id="Documentation" order="11" side_tool="true" weight="0.17502668" />
+      <window_info anchor="right" x="0" y="0" width="434" height="866" id="Documentation" order="11" side_tool="true" visible="true" weight="0.3236559" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" x="41" y="267" width="644" height="647" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22732124" />
+      <window_info content_ui="combo" x="41" y="267" width="644" height="647" id="Project" order="0" sideWeight="0.6703755" weight="0.41776314" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -411,19 +739,19 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32975295" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28893661" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.09344791" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4994664" weight="0.26638025" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49665925" visible="true" weight="0.3727175" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946237" weight="0.25993556" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3630505" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5033408" side_tool="true" weight="0.21112372" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.36197636" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Terminal" order="16" />
@@ -431,14 +759,14 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Maven" order="7" weight="0.09284952" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32977587" />
+      <window_info anchor="right" id="Maven" order="7" weight="0.685307" />
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
-      <window_info anchor="right" x="0" y="0" width="434" height="866" id="Documentation" order="11" side_tool="true" visible="true" weight="0.17502668" />
+      <window_info anchor="right" x="0" y="0" width="434" height="866" id="Documentation" order="11" side_tool="true" visible="true" weight="0.3236559" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,35 +783,102 @@
     <MESSAGE value="validation encryption/decryption/keya" />
     <MESSAGE value="translation to eng" />
     <MESSAGE value="clean" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean" />
+    <MESSAGE value="implement Diffie-Hellman algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement Diffie-Hellman algorithm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ServerUI.java</url>
-          <line>298</line>
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>33</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ServerUI.java</url>
-          <line>299</line>
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>34</line>
           <properties />
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ServerUI.java</url>
-          <line>300</line>
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>40</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Server.java</url>
+          <line>96</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Server.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Server.java</url>
+          <line>100</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Server.java</url>
+          <line>99</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/formServer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/androidDialogo.png">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/android_logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/awt/Image.java">
@@ -525,19 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/chiave.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/lockk.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/JOptionPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -546,59 +928,251 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/newlogo.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Webp.net-resizeimage.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/transparent_text_effect--1-.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/net/ServerSocket.java">
+    <entry file="jrt://C:/Program Files/Java/jdk-11.0.2!/java.base/javax/crypto/spec/SecretKeySpec.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="234" column="45" selection-start-line="234" selection-start-column="38" selection-end-line="234" selection-end-column="45" />
+        <state relative-caret-position="-19">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CryptMessage.java">
+    <entry file="jrt://C:/Program Files/Java/jdk-11.0.2!/java.base/javax/crypto/Cipher.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+        <state relative-caret-position="318">
+          <caret line="650" column="22" selection-start-line="650" selection-start-column="22" selection-end-line="650" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt://C:/Program Files/Java/jdk-11.0.2!/java.base/com/sun/crypto/provider/DHKeyPairGenerator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/security/KeyPairGeneratorSpi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/security/SecureRandom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3240">
+          <caret line="210" column="11" selection-start-line="210" selection-start-column="11" selection-end-line="210" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.xml/com/sun/org/apache/xerces/internal/impl/dv/util/Base64.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UtilsCryptChat.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/awt/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17158">
+          <caret line="817" column="16" selection-start-line="817" selection-start-column="16" selection-end-line="817" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/AbstractButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21643">
+          <caret line="1008" column="16" selection-start-line="1008" selection-start-column="16" selection-end-line="1008" selection-end-column="16" />
+          <folding>
+            <element signature="e#35746#35747#0" expanded="true" />
+            <element signature="e#35804#35805#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/net/AbstractPlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1428">
+          <caret line="448" column="5" lean-forward="true" selection-start-line="448" selection-start-column="5" selection-end-line="448" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/net/PlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/net/ServerSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="134" selection-start-line="134" selection-end-line="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/security/KeyPairGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="727" selection-start-line="727" selection-end-line="727" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/security/Key.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2304">
+          <caret line="151" column="18" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/io/DataInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="362" column="44" lean-forward="true" selection-start-line="362" selection-start-column="44" selection-end-line="362" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt://C:/Program Files/Java/jdk-11.0.2!/java.base/javax/crypto/KeyAgreement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/netbeans/external/AbsoluteLayout/RELEASE712/AbsoluteLayout-RELEASE712.jar!/org/netbeans/lib/awtextra/AbsoluteConstraints.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/KeyExchange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="75" column="35" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="13" column="88" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2121">
-          <caret line="300" selection-start-line="300" selection-end-line="300" />
+        <state relative-caret-position="1188">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#17074#17075#0" expanded="true" />
-            <element signature="e#17120#17121#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="37" />
+        <state relative-caret-position="1530">
+          <caret line="98" column="46" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5450#5451#0" expanded="true" />
-            <element signature="e#5490#5491#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CryptChatUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="25" column="66" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/net/InetAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="1295" column="32" selection-start-line="1295" selection-start-column="32" selection-end-line="1295" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="242" column="76" selection-start-line="242" selection-start-column="76" selection-end-line="242" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2842#2843#0" expanded="true" />
+            <element signature="e#2881#2882#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/locker_background.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/lock_icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/key_icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/unlock_dialog.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cryptchat_logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/unlock_button.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/lock_button.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/key_dialog.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/clear_button.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/send_dialog.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/server_button.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cryptchat_logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/lock_dialog.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/author_logo.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
   <component name="masterDetails">
