@@ -1,3 +1,9 @@
+package server;
+
+import dh.KeyExchange;
+import utils.CryptChatUtils;
+
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -5,11 +11,13 @@ import java.net.Socket;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.Scanner;
+
+import static utils.CryptChatUtils.*;
 
 public class ClientHandler extends Thread{
 
     private Socket client;
+
     private Server.ServerResponse response;
     private KeyExchange keyExchange;
 
@@ -40,49 +48,47 @@ public class ClientHandler extends Thread{
         super.run();
         initStreams(client);
 
-
         try {
-            receiveMessagesDecodedBase64();
+            receiveMessages();
         } catch (IOException e) {
             e.printStackTrace();
             closeConnection();
-            System.err.println("Closing connection...");
+            System.err.println("Closing server...");
         }
     }
 
-    private void receiveMessagesDecodedBase64() throws IOException {
-
+    private void receiveMessages() throws IOException {
         while (isClientConnected){
-
             String dataEncoded = ois.readUTF();
-            performOperation(CryptChatUtils.retrieveCommand(dataEncoded), CryptChatUtils.retrieveMessage(dataEncoded));
-
+            performOperation(retrieveCommand(dataEncoded), retrieveMessage(dataEncoded));
         }
     }
 
 
     private void performOperation(int c, String message) {
-        if(c == CryptChatUtils.ENCRYPTED_MESSAGE){
+        if(c == ENCRYPTED_MESSAGE){
             response.showMessageReceived(message);
             response.notifyMessageReceived();
             System.err.println("message received");
-        }else if(c == CryptChatUtils.PUBLIC_KEY){
+        }else if(c == PUBLIC_KEY){
             System.err.println("Receiving public key from client..");
 
                try {
 
                    System.out.println("pbk via socket: " + message);
-                   keyExchange.receivePublicKeyFromClient(message);
-                   response.showPrivateKey(CryptChatUtils.encodeBase64(keyExchange.getAESKey().getEncoded()));
+                   try {
+                       keyExchange.receivePublicKeyFromClient(message);
+                   } catch (InvalidKeySpecException e) {
+                       e.printStackTrace();
+                   } catch (InvalidKeyException e) {
+                       e.printStackTrace();
+                   }
+                   response.showPrivateKey(encodeBase64(keyExchange.getAESKey().getEncoded()));
                } catch (NoSuchAlgorithmException e) {
-                   e.printStackTrace();
-               } catch (InvalidKeySpecException e) {
-                   e.printStackTrace();
-               } catch (InvalidKeyException e) {
                    e.printStackTrace();
                }
 
-        }else if(c == CryptChatUtils.READY){
+        }else if(c == READY){
             System.err.println("Client is ready to received the key...");
             sendPublicKey(keyExchange.getPublicKeyEncoded());
         }
@@ -120,8 +126,7 @@ public class ClientHandler extends Thread{
     public void sendPublicKey(String key){
         System.err.println(CryptChatUtils.REQUEST_PUBLIC_KEY + CryptChatUtils.PROTOCOL_SEPARATOR + key);
 
-        sendMessage(CryptChatUtils.REQUEST_PUBLIC_KEY,
-                    CryptChatUtils.PROTOCOL_SEPARATOR, key);
+        sendMessage(CryptChatUtils.REQUEST_PUBLIC_KEY, CryptChatUtils.PROTOCOL_SEPARATOR, key);
     }
 
     public KeyExchange getKeyExchange() {

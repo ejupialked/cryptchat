@@ -1,13 +1,17 @@
+package server;
+
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import dh.KeyExchange;
+import utils.CryptChatUtils;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
-import java.lang.reflect.Array;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Scanner;
+
+import static utils.CryptChatUtils.ENCRYPTED_MESSAGE;
+import static utils.CryptChatUtils.PROTOCOL_SEPARATOR;
 
 public class Server implements Runnable {
 
@@ -69,9 +73,7 @@ public class Server implements Runnable {
 
     public void
     sendMessage(String message){
-        clientHandler.sendMessage(CryptChatUtils.ENCRYPTED_MESSAGE,
-                CryptChatUtils.PROTOCOL_SEPARATOR,
-                message);
+        clientHandler.sendMessage(ENCRYPTED_MESSAGE, PROTOCOL_SEPARATOR, message);
     }
 
 

@@ -1,3 +1,6 @@
+import server.Server;
+import ui.ServerUI;
+
 import javax.swing.*;
 import java.net.InetAddress;
 

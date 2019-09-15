@@ -1,3 +1,5 @@
+package dh;
+
 import javax.crypto.KeyAgreement;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
@@ -5,7 +7,9 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
+
+import static utils.CryptChatUtils.*;
+
 
 public class KeyExchange {
 
@@ -41,7 +45,7 @@ public class KeyExchange {
     }
 
     public void generateDHKeyPair() throws NoSuchAlgorithmException {
-        serverKeyPair = KeyPairGenerator.getInstance("DH");
+        serverKeyPair = KeyPairGenerator.getInstance("dh");
         serverKeyPair.initialize(2048);
 
         serverPair = serverKeyPair.generateKeyPair();
@@ -54,25 +58,25 @@ public class KeyExchange {
     }
 
     public void initDHAgreement() throws NoSuchAlgorithmException, InvalidKeyException {
-        serverKeyAgreement = KeyAgreement.getInstance("DH");
+        serverKeyAgreement = KeyAgreement.getInstance("dh");
         serverKeyAgreement.init(privateKey);
     }
 
 
     public String getPublicKeyEncoded(){
-        return CryptChatUtils.encodeBase64(publicKey.getEncoded());
+        return encodeBase64(publicKey.getEncoded());
     }
 
     public String getPrivateKeyEncoded(){
-        return CryptChatUtils.encodeBase64(privateKey.getEncoded());
+        return encodeBase64(privateKey.getEncoded());
     }
 
 
     public void receivePublicKeyFromClient(String publicKeyBase64) throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException {
 
-        byte[] pubKeyDecoded = CryptChatUtils.decodeBase64(publicKeyBase64);
+        byte[] pubKeyDecoded = decodeBase64(publicKeyBase64);
 
-        keyFactory = KeyFactory.getInstance("DH");
+        keyFactory = KeyFactory.getInstance("dh");
         x509KeySpec = new X509EncodedKeySpec(pubKeyDecoded);
 
         PublicKey publicKey1 = keyFactory.generatePublic(x509KeySpec);
@@ -82,7 +86,7 @@ public class KeyExchange {
 
         this.commonSecret = serverKeyAgreement.generateSecret();
 
-        System.out.println("Your common secret is: " + CryptChatUtils.encodeBase64(getAESKey().getEncoded()));
+        System.out.println("Your common secret is: " + encodeBase64(getAESKey().getEncoded()));
 
         System.out.println("Secret: " + commonSecret);
 
@@ -95,6 +99,6 @@ public class KeyExchange {
 
     public SecretKeySpec getAESKey() {
 
-        return CryptChatUtils.generateAESKey(commonSecret);
+        return generateAESKey(commonSecret);
     }
 }
