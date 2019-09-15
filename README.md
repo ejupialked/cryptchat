@@ -8,8 +8,9 @@ This chat uses the Diffie-Hellman algorithm for the exchange of public keys and 
 This personal project was created in my final year of high school in 2017. I presented this project during my oral exam which was about Computer Security. After high school my coding skills have improved, that's why I decided to refactor the code making the chat more secure. 
 
 ## Screenshots
-[![Client][product-screenshot]](https://github.com/EjupiAlked/CryptChat/blob/master/art/artServer.png?raw=true)
-[![Server][product-screenshot]](https://github.com/EjupiAlked/CryptChat/blob/master/art/artServer.png?raw=true)
+
+![Client](https://github.com/EjupiAlked/CryptChat/blob/master/art/artServer.png?raw=true)
+[![Server](https://github.com/EjupiAlked/CryptChat/blob/master/art/artServer.png?raw=true)
 
 ## Project Status
 
