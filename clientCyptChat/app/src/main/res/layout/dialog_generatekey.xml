@@ -9,7 +9,7 @@
         android:id="@+id/gif"
         android:layout_width="400dp"
         android:layout_height="380dp"
-        android:src="@drawable/key_pair"
+        android:src="@drawable/keypair"
         android:background="@color/white"
         />
 
