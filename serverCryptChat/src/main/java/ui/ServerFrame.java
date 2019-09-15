@@ -6,6 +6,10 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 import javax.swing.*;
 import java.awt.*;
 
+
+/**
+ * @author Alked Ejupi
+ */
 public class ServerFrame extends JFrame {
 
 
