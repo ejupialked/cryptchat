@@ -1,178 +1,143 @@
-import java.awt.*;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
-import java.net.InetAddress;
+import java.lang.reflect.Array;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Server implements Runnable{
+public class Server implements Runnable {
 
-    private InetAddress ipHost;
-    private ServerUI serverUI;
+    private ServerResponse serverResponse;
+    private ClientHandler clientHandler;
+
     private int port;
-
-
-    private String ip = "172.16.5.124" +
-            "";
-
     private ServerSocket serverSocket;
     private Socket socket;
+    private KeyExchange keyExchange;
 
-    private ObjectInputStream objectInputStream;
-    private ObjectOutputStream objectOutputStream;
-
-    private boolean isConnected;
-
-    Server(){
-
-        try {
-            InetAddress localhost = InetAddress.getLocalHost();
-            this.ipHost = localhost;
-            System.err.println(ipHost);
-
-
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public InetAddress getIpHost() {
-        return ipHost;
-    }
-
-    public void setPort (String port) throws Exception {
-        int intPort;
-
-        try {
-            intPort =Integer.parseInt(port);
-        }catch (Exception e){
-            throw new Exception("Port not valid");
-        }
-
-        this.port = intPort;
-
-
-
-    }
-
-
-    public void openConnection(int port){
+    public void openConnection(int port) throws IOException{
         this.port = port;
-        try {
-            serverSocket = new ServerSocket(port);
 
-            serverUI.getTxtStatus().setText("Listening for any devices...");
-            serverUI.getTxtStatus().setForeground(Color.WHITE);
-            serverUI.getTxtStatus().setBackground(Color.decode("#003366"));
-
-        } catch (IOException e) {
-            serverUI.showCustomMessage(serverUI, "Invalid port number", "Error", 0, null);
-            Thread.currentThread().interrupt();
+        keyExchange = new KeyExchange();
+        serverSocket = new ServerSocket(port);
+        serverResponse.notifyConnectionOpen();
     }
 
-        try {
-            socket = serverSocket.accept();
-            serverUI.showConnectionEstablished(); //UI
 
-            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-            objectInputStream = new ObjectInputStream(socket.getInputStream());
-
-        } catch (IOException e) {
-            serverUI.showCustomMessage(serverUI, "Invalid port number", "Error", 0, null);
-            Thread.currentThread().interrupt();
-        }
-
-        isConnected = true;
+    public void setPort(int port) {
+        this.port = port;
     }
 
+    public void setServerResponse(ServerResponse serverResponse) {
+        this.serverResponse = serverResponse;
+    }
+
+    public void handleClient(){
+        clientHandler = new ClientHandler(socket, serverResponse);
+        clientHandler.setKeyExchange(keyExchange);
+        clientHandler.start();
+    }
 
     @Override
     public void run() {
 
-        String keyReceived = null;
-        String messageReceived = null;
-
-        openConnection(port);
-
-        while(isConnected){
-
-            String messsage = null;
-
-            try {
-                messsage = (String) objectInputStream.readUTF();
-
-
-
-                int fineChiave = messsage.indexOf("/#&#/");
-                int inizioChiave = 0;
-                int inizioMessaggio = messsage.indexOf("/#&#/") + 5;
-                int fineMessaggio = messsage.length();
-
-                keyReceived = messsage.substring(inizioChiave, fineChiave);
-                serverUI.setKeyReceived(keyReceived);
-                messageReceived = messsage.substring(inizioMessaggio, fineMessaggio);
-
-                serverUI.setMessageReceived(messsage);
-
-                new Thread(() ->{
-                    serverUI.showCustomMessage(serverUI, "You have just received a message",
-                            "Notification",
-                            -1,
-                            "src/main/resources/androidDialogo.png" );
-                }).start();
-
-            }catch (Exception e){
-
-            }
-        }
-
-    }
-
-
-
-    public void sendMessage(String message, String key) throws Exception{
-
-        if(message.isEmpty()){
-            throw new Exception("You must enter a message.");
-        }
         try {
+            openConnection(port);
+            keyExchange.init();
+            System.out.println(keyExchange.getPublicKeyEncoded());
 
-            String data = key + "/#&#/" + message;
-            objectOutputStream.writeUTF(data);
-            objectOutputStream.flush();
-            objectOutputStream.reset();
+            acceptConnection();
+            serverResponse.notifyConnectionEstablished();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        handleClient();
+
     }
 
-    public String decryptMessage(String message, String key) {
+    private void acceptConnection() throws IOException {
+        socket = serverSocket.accept();
+    }
 
+
+    public void
+    sendMessage(String message){
+        clientHandler.sendMessage(CryptChatUtils.ENCRYPTED_MESSAGE,
+                CryptChatUtils.PROTOCOL_SEPARATOR,
+                message);
+    }
+
+
+    /**
+     *
+     * @param message the message to decrypt
+     * @return the message decrypted
+     */
+    public String decryptMessage(String message) {
+        String decrypted = null;
         try {
-            return CryptMessage.decrypt(message, key);
+            decrypted = decrypt(message, clientHandler.getKeyExchange().getAESKey());
+            serverResponse.showDecryptedMessage(decrypted);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return "not possible";
-
+        return decrypted;
     }
 
 
-    public String encryptMessage(String message, String key) throws Exception{
-
-        if(key.length() != 16 && key.length() != 0){
-            throw new Exception("The key must be 16 characters.");
-        }else if(key.length() == 0){
-            throw new Exception("Key not inserted");
+    public String encryptMessage(String message) {
+        String encrypted = null;
+        try {
+            encrypted = CryptChatUtils.encrypt(message, clientHandler.getKeyExchange().getAESKey());
+            serverResponse.showEncryptedMessage(encrypted);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        return CryptMessage.encrypt(message, key);
+        return encrypted;    }
+
+
+
+    public void generateNewKey() {
+        clientHandler.getKeyExchange().init();
+        clientHandler.sendPublicKey(clientHandler.getKeyExchange().getPublicKeyEncoded());
+        serverResponse.showPrivateKey(clientHandler.getKeyExchange().getPrivateKeyEncoded());
+    }
+
+    public  String decrypt(String encryptedMessage, SecretKeySpec aesKey) throws Exception {
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.DECRYPT_MODE,aesKey);
+
+
+        System.out.println("im decrypting : " + Base64.encode(aesKey.getEncoded()));
+
+        System.out.println("Key encoded :" + Base64.encode(aesKey.getEncoded()));
+        byte[] decodedMessage = Base64.decode(encryptedMessage);
+        byte[] recovered = cipher.doFinal(decodedMessage);
+
+        return new String(recovered);
+    }
+
+    public interface ServerResponse{
+        void notifyConnectionOpen();
+        void notifyMessageReceived();
+        void showEncryptedMessage(String s);
+        void showDecryptedMessage(String s);
+
+        void showMessageReceived(String s);
+        void showPrivateKey(String s);
+        void showErrorMessage(String s);
+        void notifyConnectionEstablished();
 
     }
 
-    public void setUI(ServerUI serverUI) {
-        this.serverUI = serverUI;
-    }
+
 }
