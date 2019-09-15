@@ -1,6 +1,5 @@
 package com.cryptchat.client;
 
-
 import android.os.AsyncTask;
 import java.io.ObjectInputStream;
 
@@ -8,42 +7,57 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
 
     private boolean isConnected;
     private ObjectInputStream ois;
-    private ReceiveMessageResponse receiveMessageResponse;
+    private ReceiveMessageResponse response;
+    private KeyExchange keyExchange;
 
-    public ReceiveMessage() {
-
-    }
 
     @Override
     protected String doInBackground(Void... voids) {
-
         while (isConnected){
-            delay(100);
-            String message = readMessage();
-            publishProgress(message);
+            String data = null;
+            CryptChatUtils.delay(100);
+
+            data = readMessage();
+
+            if(data != null){
+                int command = CryptChatUtils.retrieveCommand(data);
+                String message = CryptChatUtils.retrieveMessage(data);
+                performOperation(command, message);
+            }
         }
 
         return null;
+    }
+
+    private void performOperation(int c, String message) {
+        if(c == CryptChatUtils.REQUEST_PUBLIC_KEY){
+            byte[] decodedPublicKey = Base64.decode(message);
+            keyExchange.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, decodedPublicKey);
+        }else if(c == CryptChatUtils.ENCRYPTED_MESSAGE){
+            publishProgress(message);
+        }else if(c == CryptChatUtils.REQUEST_NEW_KEY){
+            byte[] decodedPublicKey = Base64.decode(message);
+            keyExchange.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, decodedPublicKey);
+        }
     }
 
 
     @Override
     protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
-
         String message = values[0];
-
-        receiveMessageResponse.notifyUserMessageReceived();
-        receiveMessageResponse.showEncryptedMessageReceived(message);
+        response.notifyUserMessageReceived();
+        response.showEncryptedMessageReceived(message);
     }
 
-    public String readMessage(){
+    private String readMessage(){
         String message = "error";
 
         try {
             message = ois.readUTF();
+            System.err.println(message);
         }catch (Exception e){
-            receiveMessageResponse.showError(e.getLocalizedMessage());
+            response.showError(e.getLocalizedMessage());
         }
 
         return message;
@@ -53,22 +67,16 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
         this.ois = ois;
     }
 
-
     public void setIsConnected(boolean isConnected) {
         this.isConnected = isConnected;
     }
 
-
-    public void delay(int millis){
-        try {
-            Thread.sleep(millis);
-        }catch (InterruptedException e){
-            receiveMessageResponse.showError("System error");
-        }
+    public void setKeyExchange(KeyExchange keyExchange) {
+        this.keyExchange = keyExchange;
     }
 
     public void setResponse(ReceiveMessageResponse response) {
-        this.receiveMessageResponse = response;
+        this.response = response;
     }
 
     public interface ReceiveMessageResponse {
