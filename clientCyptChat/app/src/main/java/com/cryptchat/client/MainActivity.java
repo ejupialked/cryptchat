@@ -1,6 +1,7 @@
 package com.cryptchat.client;
 
 import android.content.Intent;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,9 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
     String port;
     String ip;
 
+
+    DialogFragment loadConnection;
+
     ClientApplication clientApplication;
 
 
@@ -27,10 +31,17 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
         clientApplication = ((ClientApplication)getApplication());
         clientApplication.setClientConnectionResponse(this);
 
-
         btnConnect = findViewById(R.id.btnConnect);
         txtIP = findViewById(R.id.txt_ip);
         txtPort = findViewById(R.id.txtPort);
+
+
+
+        loadConnection = ConnectionFragment.getInstance();
+
+
+        txtPort.setText("5000");
+        txtIP.setText("172.16.7.250");
 
 
         btnConnect.setOnClickListener(new View.OnClickListener() {
@@ -39,11 +50,18 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
                 ip = txtIP.getText().toString();
                 port = txtPort.getText().toString();
 
-                ((ClientApplication)getApplication()).connect(ip, port);
+
+                try {
+                    clientApplication.connect(ip, port);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showErrorMessage("Couldn't connect, check ip and port");
+                }
             }
         });
-
     }
+
+
 
     @Override
     public void openChat() {
@@ -52,17 +70,29 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
     }
 
     @Override
-    public void showErrorMessage(final String message) {
-        new Thread()
-        {
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(getBaseContext(),message, Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-            }
-        }.start();
+    public void openDialogConnection() {
+        loadConnection.show(getSupportFragmentManager(), "Loading key");
     }
+
+    @Override
+    public void closeDialogConnection() {
+        loadConnection.dismiss();
+    }
+
+
+    @Override
+    public void showErrorMessage(final String message) {
+            new Thread()
+            {
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getBaseContext(),message, Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }
+            }.start();
+    }
+
 }

@@ -199,7 +199,7 @@ public final class  Base64 {
      * @param encoded string containing Base64 data
      * @return Array containind decoded data.
      */
-    public static byte[] decode(String encoded) {
+    public static byte[]    decode(String encoded) {
 
         if (encoded == null)
             return null;

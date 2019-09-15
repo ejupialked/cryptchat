@@ -18,7 +18,7 @@ import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class KeyExchange extends AsyncTask<byte[], byte[], String> {
+public class KeyExchange extends AsyncTask<byte[], Integer, String> {
 
 
     private PublicKey publicKey;
@@ -118,7 +118,7 @@ public class KeyExchange extends AsyncTask<byte[], byte[], String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        sender.notifyCretingKeyPair();
+        sender.openDialogPublicKey();
     }
 
     @Override
@@ -126,8 +126,23 @@ public class KeyExchange extends AsyncTask<byte[], byte[], String> {
         PublicKey publicKey;
 
         try {
-           publicKey = receivePublicKeyFromServer(bytes[0]);
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            publishProgress(1);
+
+            publicKey = receivePublicKeyFromServer(bytes[0]);
+
+            publishProgress(2);
            sender.sendPublicKey(getPublicKey());
+
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
            doPhase(publicKey);
            this.commonSecret = keyAgreement.generateSecret();
         } catch (NoSuchAlgorithmException e) {
@@ -139,17 +154,33 @@ public class KeyExchange extends AsyncTask<byte[], byte[], String> {
         return Base64.encode(CryptChatUtils.generateAESKey(commonSecret).getEncoded());
     }
 
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        super.onProgressUpdate(values);
+        if(values[0] == 1) sender.closeDialogPublicKey();
+        if(values[0] == 2) sender.openDialogKeyPair();
+
+    }
+
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        sender.closeDialogKeyPair();
         sender.showPrivateKey(s);
     }
 
     public interface SendKey {
+
+        void openDialogPublicKey();
+        void closeDialogPublicKey();
+
+        void openDialogKeyPair();
+        void closeDialogKeyPair();
+
         void sendPublicKey(PublicKey publicKey);
         void sendError(String error);
         void showPrivateKey(String s);
-        void notifyCretingKeyPair();
     }
 
 }

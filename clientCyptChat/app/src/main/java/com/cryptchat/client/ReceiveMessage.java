@@ -1,15 +1,22 @@
 package com.cryptchat.client;
 
+import android.app.Application;
 import android.os.AsyncTask;
 import java.io.ObjectInputStream;
 
 class ReceiveMessage extends AsyncTask<Void, String, String> {
 
+    private ClientApplication clientApplication;
     private boolean isConnected;
     private ObjectInputStream ois;
     private ReceiveMessageResponse response;
     private KeyExchange keyExchange;
 
+
+
+    ReceiveMessage(ClientApplication clientApplication){
+        this.clientApplication = clientApplication;
+    }
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -32,14 +39,17 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
     private void performOperation(int c, String message) {
         if(c == CryptChatUtils.REQUEST_PUBLIC_KEY){
             byte[] decodedPublicKey = Base64.decode(message);
-            keyExchange.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, decodedPublicKey);
+            clientApplication.executeKeyExchange(decodedPublicKey);
         }else if(c == CryptChatUtils.ENCRYPTED_MESSAGE){
             publishProgress(message);
         }else if(c == CryptChatUtils.REQUEST_NEW_KEY){
             byte[] decodedPublicKey = Base64.decode(message);
-            keyExchange.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, decodedPublicKey);
+            clientApplication.executeKeyExchange(decodedPublicKey);
         }
     }
+
+
+
 
 
     @Override

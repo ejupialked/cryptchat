@@ -84,13 +84,4 @@ public class CryptChatUtils {
 
     }
 
-
-    public String decryptMessage(String message) {
-        return null;
-    }
-
-    public String encryptMessage(String message) {
-        return null;
-    }
-
 }

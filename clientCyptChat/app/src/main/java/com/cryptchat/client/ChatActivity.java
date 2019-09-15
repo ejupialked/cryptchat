@@ -2,6 +2,7 @@ package com.cryptchat.client;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -25,6 +26,12 @@ public class ChatActivity extends AppCompatActivity
     Button btnDecrypt;
     Button btnEncrypt;
 
+
+
+    DialogFragment pbk;
+    DialogFragment keypair;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +48,11 @@ public class ChatActivity extends AppCompatActivity
         btnEncrypt = findViewById(R.id.btnEncrypt);
         btnSend = findViewById(R.id.btnSend);
         btnDecrypt= findViewById(R.id.btnDecrypt);
+
+
+
+        pbk = LoadingKeyFragment.getInstance();
+        keypair = GenerateKeyFragment.getInstance();
 
         clientApplication.setReceiveMessageResponse(this);
         clientApplication.setSendMessageResponse(this);
@@ -95,6 +107,27 @@ public class ChatActivity extends AppCompatActivity
     @Override
     public void showMessageReceived(String s) {
         txtReceivedMsg.setText(s);
+    }
+
+    @Override
+    public void openDialogKeyPair() {
+        keypair.show(getSupportFragmentManager(), "Loading key");
+    }
+
+    @Override
+    public void closeDialogKeyPair() {
+        keypair.dismiss();
+    }
+
+    @Override
+    public void openDialogPublicKey() {
+        pbk.show(getSupportFragmentManager(), "Loading key");
+
+    }
+
+    @Override
+    public void closeDialogPublicKey() {
+        pbk.dismiss();
     }
 
     @Override

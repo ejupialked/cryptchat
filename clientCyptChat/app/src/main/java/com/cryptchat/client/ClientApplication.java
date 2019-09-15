@@ -31,15 +31,19 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
     private SendMessage.SendMessageResponse sendMessageResponse;
 
 
-    ClientApplication(){
-        receive = new ReceiveMessage();
-        keyExchange = new KeyExchange(this);
+    @Override
+    public void onCreate() {
+        receive = new ReceiveMessage(this);
+        super.onCreate();
     }
 
-
+    public void executeKeyExchange(byte[] pbk){
+        keyExchange = new KeyExchange(this);
+        keyExchange.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,pbk);
+    }
 
     public void executeReceive(){
-        receive.setKeyExchange(keyExchange);
+
         receive.setResponse(receiveMessageResponse);
         receive.setIsConnected(isConnected());
         receive.setOis(ois);
@@ -86,6 +90,27 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
 
 
     @Override
+    public void openDialogPublicKey() {
+        chatClient.openDialogPublicKey();
+
+    }
+
+    @Override
+    public void closeDialogPublicKey() {
+        chatClient.closeDialogPublicKey();
+    }
+
+    @Override
+    public void openDialogKeyPair() {
+        chatClient.openDialogKeyPair();
+    }
+
+    @Override
+    public void closeDialogKeyPair() {
+        chatClient.closeDialogKeyPair();
+    }
+
+    @Override
     public void sendPublicKey(PublicKey publicKey) {
 
         byte[] encodedPublicKey = publicKey.getEncoded();
@@ -111,10 +136,7 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
         chatClient.showPrivateKey(s);
     }
 
-    @Override
-    public void notifyCretingKeyPair() {
-        clientConnectionResponse.showErrorMessage("Creating key pair");
-    }
+
 
 
     private void initStreams(Socket server) {
@@ -141,8 +163,19 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
 
 
 
+
+
+
     @SuppressLint("StaticFieldLeak")
     private class Connect extends AsyncTask<String, Void, Boolean> {
+
+
+        @Override
+        protected void onPreExecute() {
+
+            super.onPreExecute();
+            clientConnectionResponse.openDialogConnection();
+        }
 
         @Override
         protected Boolean doInBackground(String... networkData) {
@@ -153,6 +186,11 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
                 System.err.println("connecting");
                 socket = new Socket(ip, port);
                 isConnected = true;
+                try {
+                    Thread.sleep(7000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 initStreams(socket);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -168,6 +206,7 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
         protected void onPostExecute(Boolean connected) {
             super.onPostExecute(connected);
             if (connected) {
+                clientConnectionResponse.closeDialogConnection();
                 clientConnectionResponse.openChat();
             }
         }
@@ -197,13 +236,25 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
     }
 
 
+
     public interface ClientChat{
         void showPrivateKey(String s);
         void showMessageReceived(String s);
+
+
+        void openDialogKeyPair();
+        void closeDialogKeyPair();
+
+        void openDialogPublicKey();
+        void closeDialogPublicKey();
     }
 
         public interface ClientConnectionResponse {
         void openChat();
+
+        void openDialogConnection();
+        void closeDialogConnection();
+
         void showErrorMessage(String message);
     }
 }

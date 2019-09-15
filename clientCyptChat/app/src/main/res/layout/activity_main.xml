@@ -89,12 +89,21 @@
         android:orientation="vertical"
         android:text="Connect "
         android:textSize="20dp"
-        android:onClick="startAsyncTask"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtPort"
         app:layout_constraintStart_toStartOf="@+id/txtPort"
         app:layout_constraintTop_toBottomOf="@+id/txtPort"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        style="@style/textView_style"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="© 2017 Ejupi Alked All Rights Reserved"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

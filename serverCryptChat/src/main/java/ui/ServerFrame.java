@@ -28,6 +28,32 @@ public class ServerFrame extends JFrame {
     }
 
 
+
+    public void showCustomMessage(JFrame parent, String text, String title, int messageType, String pathImg){
+        JLabel label = new JLabel(text);
+        label.setFont(new Font("Century Gothic", Font.BOLD, 15));
+        ImageIcon icon = new ImageIcon(pathImg);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                JOptionPane.showMessageDialog(parent,label,title,messageType,icon);
+            }
+        }).start();
+
+    }
+    public void notification(String img, String text){
+
+        showCustomMessage(this, text, "Notification", JOptionPane.UNDEFINED_CONDITION, img);
+
+    }
+
+    public void error(String img, String text){
+
+        showCustomMessage(this, text, "Notification", JOptionPane.ERROR_MESSAGE, img);
+
+    }
+
     private void putIcon() {
         ImageIcon icon = new ImageIcon("src/main/resources/lock_icon.png");
         setIconImage(icon.getImage());

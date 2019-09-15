@@ -21,6 +21,7 @@ package="com.cryptchat.client">
         </intent-filter>
     </activity>
     <activity android:name=".ChatActivity"></activity>
+    <activity android:name=".LoadingKeyFragment" />
 </application>
 
 </manifest>

@@ -3,7 +3,6 @@ package server;
 import dh.KeyExchange;
 import utils.CryptChatUtils;
 
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -27,11 +26,13 @@ public class ClientHandler extends Thread{
     private boolean isClientConnected;
 
     ClientHandler(Socket client, Server.ServerResponse response){
-        this.keyExchange = new KeyExchange();
         this.client = client;
         this.response = response;
         this.isClientConnected = true;
     }
+
+
+
 
     private void initStreams(Socket client) {
         try {
@@ -95,6 +96,12 @@ public class ClientHandler extends Thread{
 
     }
 
+
+    public void requestNewKey(){
+        System.err.println(CryptChatUtils.REQUEST_NEW_KEY + CryptChatUtils.PROTOCOL_SEPARATOR + keyExchange.getPublicKeyEncoded());
+        sendMessage(REQUEST_NEW_KEY, CryptChatUtils.PROTOCOL_SEPARATOR, keyExchange.getPublicKeyEncoded());
+
+    }
 
     public void sendMessage(int command, String separator, String message){
         try {

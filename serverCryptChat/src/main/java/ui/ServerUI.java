@@ -13,17 +13,15 @@ public class ServerUI extends ServerFrame implements Server.ServerResponse{
 
     private Server server;
 
-    ServerUI(Server server) {
+    public ServerUI(Server server) {
         super();
         initListeners();
         this.server = server;
         server.setServerResponse(this);
-
     }
 
 
     private void initListeners() {
-
         btn_connect.addActionListener(this::connect);
         btn_encrypt.addActionListener(this::encrypt);
         btn_decrypt.addActionListener(this::decrypt);
@@ -34,92 +32,45 @@ public class ServerUI extends ServerFrame implements Server.ServerResponse{
 
     private void connect(ActionEvent e) {
         try {
-
             server.setPort(Integer.parseInt(txt_port.getText()));
             new Thread(server).start();
         } catch (Exception ex) {
-            showCustomMessage(this, ex.getMessage(), "Error", 0, null);
+            error(null, ex.getMessage());
             txt_port.setText("");
         }
     }
 
-
-
     private void encrypt(ActionEvent e) {
         String message = txt_message.getText();
         server.encryptMessage(message);
-
-        showCustomMessage(this,
-                "The message has been ecrypted!",
-                "Notification", -1,
-                "src/main/resources/lock_dialog.png" );
-
+        notification("src/main/resources/lock_dialog.png","The message has been ecrypted!");
     }
 
     private void newKey(ActionEvent e) {
-
-
         server.generateNewKey();
-
-        showCustomMessage(this,
-                "Key generated!",
-                "Notification" ,
-                -1,
-                "src/main/resources/key_dialog.png");
-    }
-
-
-
-    public void showCustomMessage(JFrame parent, String text, String title, int messageType, String pathImg){
-        JLabel label = new JLabel(text);
-        label.setFont(new Font("Century Gothic", Font.BOLD, 15));
-        ImageIcon icon = new ImageIcon(pathImg);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                JOptionPane.showMessageDialog(parent,label,title,messageType,icon);
-            }
-        }).start();
-
+        notification("src/main/resources/key_dialog.png", "Server is exchanging the keys...");
     }
 
     private void send(ActionEvent e) {
         String message = txt_messageEncrypted.getText();
         server.sendMessage(message);
-
-        showCustomMessage(this,
-                "Your message has been sent",
-                "Notification", -1,
-                "src/main/resources/lock_dialog.png");
+        notification("src/main/resources/lock_dialog.png", "Your message has been sent");
 
     }
-
-
-
 
     private void decrypt(ActionEvent e) {
-
-            String encrypted = txt_messageReceived.getText();
-            server.decryptMessage(encrypted);
-
-
-            showCustomMessage(this, "Messaggio Decriptato!", "Notification",
-                    -1, "src/main/resources/unlock_dialog.png" );
-
+        String encrypted = txt_messageReceived.getText();
+        server.decryptMessage(encrypted);
+        notification("src/main/resources/unlock_dialog.png", "The message has been decrypted!");
     }
 
-
-    private void clear(ActionEvent evt) {
+    private void clear(ActionEvent e) {
         txt_message.setText("");
     }
-
-
 
     @Override
     public void showEncryptedMessage(String s) {
         txt_messageEncrypted.setText(s);
-
     }
 
     @Override
@@ -132,24 +83,17 @@ public class ServerUI extends ServerFrame implements Server.ServerResponse{
         getTxt_status().setText("Waiting the client...");
         getTxt_status().setForeground(Color.WHITE);
         getTxt_status().setBackground(Color.decode("#003366"));
-
     }
 
     @Override
     public void notifyMessageReceived() {
-        new Thread(() ->{
-            showCustomMessage(this, "You have just received a message",
-                    "Notification",
-                    -1,
-                    "src/main/resources/android_logo.png" );
-        }).start();
+        notification("src/main/resources/android_logo.png", "You have just received a message" );
     }
 
     @Override
     public void showMessageReceived(String s) {
         txt_messageReceived.setText(s);
     }
-
 
     @Override
     public void showPrivateKey(String s) {
@@ -158,25 +102,14 @@ public class ServerUI extends ServerFrame implements Server.ServerResponse{
 
     @Override
     public void showErrorMessage(String s) {
-        showCustomMessage(this, s, "Error", Dialog.ERROR, null);
-
+        error("Error", s);
     }
 
     @Override
     public void notifyConnectionEstablished() {
-
         txt_status.setText("server.Server connected");
         txt_status.setForeground(Color.BLACK);
         txt_status.setBackground(Color.green);
-
-        showCustomMessage(this,
-                "server.Server",
-                "Notification", -1,
-                "src/main/resources/android_logo.png"
-        );
+        notification("src/main/resources/android_logo.png", "Server is now connected with the client");
     }
-
-
-
-
 }
