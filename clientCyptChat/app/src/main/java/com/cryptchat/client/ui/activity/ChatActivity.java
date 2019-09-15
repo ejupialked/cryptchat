@@ -1,4 +1,4 @@
-package com.cryptchat.client;
+package com.cryptchat.client.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,8 +11,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ChatActivity extends AppCompatActivity
-        implements ReceiveMessage.ReceiveMessageResponse,
+import com.cryptchat.client.ClientApplication;
+import com.cryptchat.client.asynctask.ReceiveMessage;
+import com.cryptchat.client.asynctask.SendMessage;
+import com.cryptchat.client.ui.fragments.GenerateKeyFragment;
+import com.cryptchat.client.ui.fragments.LoadingKeyFragment;
+import com.cryptchat.client.R;
+
+
+public class ChatActivity extends AppCompatActivity implements ReceiveMessage.ReceiveMessageResponse,
         SendMessage.SendMessageResponse,
         ClientApplication.ClientChat {
 

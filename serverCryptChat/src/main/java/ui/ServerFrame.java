@@ -22,7 +22,7 @@ public class ServerFrame extends JFrame {
         txt_port.setText("5000");
         txt_message.setText("test");
 
-        txt_status.setText("server.Server Disconnected");
+        txt_status.setText("Server Disconnected");
         txt_status.setForeground(Color.BLACK);
         txt_status.setBackground(Color.red);
     }
@@ -129,7 +129,7 @@ public class ServerFrame extends JFrame {
         btn_connect.setFont(new Font("Century Gothic", 1, 14));
         btn_connect.setForeground(new Color(255, 255, 255));
         btn_connect.setIcon(new ImageIcon("src/main/resources/server_button.png"));
-        btn_connect.setText("Run server.Server");
+        btn_connect.setText("Run server");
         btn_connect.setToolTipText("");
         btn_connect.setActionCommand("btn_connect");
         btn_connect.setBorder(null);

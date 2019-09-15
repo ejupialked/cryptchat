@@ -1,11 +1,11 @@
-package com.cryptchat.client;
+package com.cryptchat.client.asynctask;
 
 import android.os.AsyncTask;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-class SendMessage extends AsyncTask<String, String, Void>  {
+public class SendMessage extends AsyncTask<String, String, Void>  {
 
     private ObjectOutputStream oos;
     private SendMessageResponse response;

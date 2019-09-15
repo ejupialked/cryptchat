@@ -1,6 +1,4 @@
-package com.cryptchat.client;
-
-import java.util.Random;
+package com.cryptchat.client.utils;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;

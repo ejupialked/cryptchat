@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#4070FF</color>
     <color name="accentmateriallight1">#092882</color>
-    <color name="white">#FFFFFF</color>
+    <color name="white">#0CFFFFFF</color>
 
 
 </resources>

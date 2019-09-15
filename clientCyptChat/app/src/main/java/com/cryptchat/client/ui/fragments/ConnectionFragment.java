@@ -1,4 +1,4 @@
-package com.cryptchat.client;
+package com.cryptchat.client.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.cryptchat.client.R;
 
 public class ConnectionFragment extends DialogFragment {
 

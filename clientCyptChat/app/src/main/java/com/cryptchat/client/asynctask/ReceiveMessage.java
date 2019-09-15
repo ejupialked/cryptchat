@@ -1,17 +1,21 @@
-package com.cryptchat.client;
+package com.cryptchat.client.asynctask;
 
-import android.app.Application;
 import android.os.AsyncTask;
+
+import com.cryptchat.client.utils.Base64;
+import com.cryptchat.client.ClientApplication;
+import com.cryptchat.client.utils.CryptChatUtils;
+
 import java.io.ObjectInputStream;
 
-class ReceiveMessage extends AsyncTask<Void, String, String> {
+public class ReceiveMessage extends AsyncTask<Void, String, String> {
 
     private ClientApplication clientApplication;
     private boolean isConnected;
     private ObjectInputStream ois;
     private ReceiveMessageResponse response;
 
-    ReceiveMessage(ClientApplication clientApplication){
+    public ReceiveMessage(ClientApplication clientApplication){
         this.clientApplication = clientApplication;
     }
 

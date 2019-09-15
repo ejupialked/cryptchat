@@ -1,6 +1,9 @@
-package com.cryptchat.client;
+package com.cryptchat.client.dh;
 
 import android.os.AsyncTask;
+
+import com.cryptchat.client.utils.Base64;
+import com.cryptchat.client.utils.CryptChatUtils;
 
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -109,11 +112,7 @@ public class KeyExchange extends AsyncTask<byte[], Integer, String> {
         PublicKey publicKey;
 
         try {
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            CryptChatUtils.delay(5000);
             publishProgress(1);
 
             publicKey = receivePublicKeyFromServer(bytes[0]);
@@ -121,12 +120,9 @@ public class KeyExchange extends AsyncTask<byte[], Integer, String> {
             publishProgress(2);
            sender.sendPublicKey(getPublicKey());
 
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-           doPhase(publicKey);
+            CryptChatUtils.delay(5000);
+
+            doPhase(publicKey);
            this.commonSecret = keyAgreement.generateSecret();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();

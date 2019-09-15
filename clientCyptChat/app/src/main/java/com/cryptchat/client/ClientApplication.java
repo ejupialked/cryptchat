@@ -3,14 +3,21 @@ package com.cryptchat.client;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.os.AsyncTask;
+
+import com.cryptchat.client.dh.KeyExchange;
+import com.cryptchat.client.asynctask.ReceiveMessage;
+import com.cryptchat.client.asynctask.SendMessage;
+import com.cryptchat.client.utils.Base64;
+import com.cryptchat.client.utils.CryptChatUtils;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.security.PublicKey;
 
-import static com.cryptchat.client.CryptChatUtils.PROTOCOL_SEPARATOR;
-import static com.cryptchat.client.CryptChatUtils.PUBLIC_KEY;
+import static com.cryptchat.client.utils.CryptChatUtils.PROTOCOL_SEPARATOR;
+import static com.cryptchat.client.utils.CryptChatUtils.PUBLIC_KEY;
 
 public class ClientApplication extends Application implements KeyExchange.SendKey {
 

@@ -1,4 +1,4 @@
-package com.cryptchat.client;
+package com.cryptchat.client.ui.activity;
 
 import android.content.Intent;
 import android.support.v4.app.DialogFragment;
@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.cryptchat.client.ClientApplication;
+import com.cryptchat.client.ui.fragments.ConnectionFragment;
+import com.cryptchat.client.R;
 
 public class MainActivity extends AppCompatActivity implements ClientApplication.ClientConnectionResponse {
 

@@ -52,6 +52,10 @@ public class KeyExchange {
         privateKey = serverPair.getPrivate();
         publicKey  = serverPair.getPublic();
 
+        System.err.println("pu: " + encodeBase64(privateKey.getEncoded()));
+        System.err.println( "pr: " + encodeBase64(privateKey.getEncoded()));
+
+
         System.err.println("G: " + retrieveDHParamFromPB(publicKey).getG());
         System.err.println("L: " + retrieveDHParamFromPB(publicKey).getL());
         System.err.println("P: " + retrieveDHParamFromPB(publicKey).getP());

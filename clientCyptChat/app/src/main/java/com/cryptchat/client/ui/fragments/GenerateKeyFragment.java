@@ -1,4 +1,4 @@
-package com.cryptchat.client;
+package com.cryptchat.client.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class LoadingKeyFragment extends DialogFragment {
+import com.cryptchat.client.R;
 
-    public static LoadingKeyFragment getInstance(){
-        return new LoadingKeyFragment();
+public class GenerateKeyFragment extends DialogFragment {
+
+    public static GenerateKeyFragment getInstance(){
+        return new GenerateKeyFragment();
     }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,6 +23,6 @@ public class LoadingKeyFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_publickey, container, false);
+        return inflater.inflate(R.layout.dialog_generatekey, container, false);
     }
 }
