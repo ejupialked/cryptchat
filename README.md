@@ -9,7 +9,7 @@ This personal project was created in my final year of high school in 2017. I pre
 
 ## Screenshots
 
-![Client](https://github.com/EjupiAlked/CryptChat/blob/master/art/artServer.png?raw=true)
+![Client](https://github.com/EjupiAlked/CryptChat/blob/master/art/art.png?raw=true)
 [![Server](https://github.com/EjupiAlked/CryptChat/blob/master/art/artServer.png?raw=true)
 
 ## Project Status
