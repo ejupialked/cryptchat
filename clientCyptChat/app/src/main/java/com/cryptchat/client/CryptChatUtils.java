@@ -3,7 +3,6 @@ package com.cryptchat.client;
 import java.util.Random;
 
 import javax.crypto.Cipher;
-import javax.crypto.KeyAgreement;
 import javax.crypto.spec.SecretKeySpec;
 
 public class CryptChatUtils {
@@ -12,15 +11,12 @@ public class CryptChatUtils {
 
     public static String PROTOCOL_SEPARATOR = "@@";
 
-
-    public static int COMMAND_INDEX         = 0;
-    public static int MESSAGE_INDEX         = 1;
-
+    public static int COMMAND_INDEX      = 0;
+    public static int MESSAGE_INDEX      = 1;
     public static int PUBLIC_KEY         = 3;
     public static int ENCRYPTED_MESSAGE  = 4;
     public static int REQUEST_NEW_KEY    = 5;
     public static int REQUEST_PUBLIC_KEY = 6;
-    public static int CLOSE_CONNECTION   = 7;
     public static int READY              = 8;
 
 
@@ -97,22 +93,6 @@ public class CryptChatUtils {
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-    }
-
-
-    public static String generateKey() {
-        String key = "";
-        for (int x = 0; x < 16; x++) {
-            int c = new Random().nextInt(122 - 48) + 48;
-            if ((c >= 50 && c <= 64) | (c >= 91 && c <= 96)) {
-                x--;
-                continue;
-            }
-
-            key += ((char) c);
-        }
-
-        return key;
     }
 
     public static int retrieveCommand(String data){

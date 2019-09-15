@@ -10,9 +10,6 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
     private boolean isConnected;
     private ObjectInputStream ois;
     private ReceiveMessageResponse response;
-    private KeyExchange keyExchange;
-
-
 
     ReceiveMessage(ClientApplication clientApplication){
         this.clientApplication = clientApplication;
@@ -79,10 +76,6 @@ class ReceiveMessage extends AsyncTask<Void, String, String> {
 
     public void setIsConnected(boolean isConnected) {
         this.isConnected = isConnected;
-    }
-
-    public void setKeyExchange(KeyExchange keyExchange) {
-        this.keyExchange = keyExchange;
     }
 
     public void setResponse(ReceiveMessageResponse response) {

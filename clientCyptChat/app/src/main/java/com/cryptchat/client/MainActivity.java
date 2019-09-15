@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements ClientApplication.ClientConnectionResponse {
+
     Button btnConnect;
     TextView txtIP;
     TextView txtPort;
@@ -17,11 +18,9 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
     String port;
     String ip;
 
-
     DialogFragment loadConnection;
 
     ClientApplication clientApplication;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +34,13 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
         txtIP = findViewById(R.id.txt_ip);
         txtPort = findViewById(R.id.txtPort);
 
-
-
         loadConnection = ConnectionFragment.getInstance();
-
-
-        txtPort.setText("5000");
-        txtIP.setText("172.16.7.250");
-
 
         btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ip = txtIP.getText().toString();
                 port = txtPort.getText().toString();
-
 
                 try {
                     clientApplication.connect(ip, port);
@@ -60,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
             }
         });
     }
-
-
 
     @Override
     public void openChat() {
@@ -79,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
         loadConnection.dismiss();
     }
 
-
     @Override
     public void showErrorMessage(final String message) {
             new Thread()
@@ -88,11 +76,9 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
                     runOnUiThread(new Runnable() {
                         public void run() {
                             Toast.makeText(getBaseContext(),message, Toast.LENGTH_SHORT).show();
-
                         }
                     });
                 }
             }.start();
     }
-
 }

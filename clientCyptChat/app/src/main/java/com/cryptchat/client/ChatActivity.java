@@ -12,8 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ChatActivity extends AppCompatActivity
-        implements ReceiveMessage.ReceiveMessageResponse, SendMessage.SendMessageResponse, ClientApplication.ClientChat {
-
+        implements ReceiveMessage.ReceiveMessageResponse,
+        SendMessage.SendMessageResponse,
+        ClientApplication.ClientChat {
 
     ClientApplication clientApplication;
 
@@ -25,8 +26,6 @@ public class ChatActivity extends AppCompatActivity
     ImageButton btnSend;
     Button btnDecrypt;
     Button btnEncrypt;
-
-
 
     DialogFragment pbk;
     DialogFragment keypair;
@@ -58,6 +57,7 @@ public class ChatActivity extends AppCompatActivity
         clientApplication.setSendMessageResponse(this);
         clientApplication.setChatClient(this);
         clientApplication.executeReceive();
+
         try {
             clientApplication.ready();
         } catch (Exception e) {
@@ -66,10 +66,8 @@ public class ChatActivity extends AppCompatActivity
     }
 
 
-
     public void send(View v){
         String m = txtEncryptedMsg.getText().toString();
-
         try {
             clientApplication.sendMessage(m);
         } catch (Exception e) {
@@ -85,7 +83,6 @@ public class ChatActivity extends AppCompatActivity
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void encrypt(View v){
@@ -122,7 +119,6 @@ public class ChatActivity extends AppCompatActivity
     @Override
     public void openDialogPublicKey() {
         pbk.show(getSupportFragmentManager(), "Loading key");
-
     }
 
     @Override
@@ -168,12 +164,5 @@ public class ChatActivity extends AppCompatActivity
             }
         }.start();
     }
-
-
-    public ClientApplication getClientApplication() {
-        return clientApplication;
-    }
-
-
 
 }

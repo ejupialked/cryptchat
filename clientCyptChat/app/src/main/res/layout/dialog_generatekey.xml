@@ -5,9 +5,6 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-
-
-
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gif"
         android:layout_width="400dp"

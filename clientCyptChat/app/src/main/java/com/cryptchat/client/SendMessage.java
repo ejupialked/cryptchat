@@ -10,15 +10,9 @@ class SendMessage extends AsyncTask<String, String, Void>  {
     private ObjectOutputStream oos;
     private SendMessageResponse response;
 
-
-    public SendMessage() {
-
-    }
-
     @Override
     protected Void doInBackground(String... data) {
         String message = data[0];
-
         try {
             oos.writeUTF(message);
             oos.flush();
@@ -27,7 +21,6 @@ class SendMessage extends AsyncTask<String, String, Void>  {
             response.showErrorSendingMessage();
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -40,14 +33,12 @@ class SendMessage extends AsyncTask<String, String, Void>  {
     protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
         System.err.println("Sent " + values[0]);
-
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         response.showMessageSentConfirmation();
-
     }
 
     public void setOos(ObjectOutputStream oos) {
@@ -55,11 +46,8 @@ class SendMessage extends AsyncTask<String, String, Void>  {
     }
 
 
-
-
     public interface SendMessageResponse{
         void showMessageSentConfirmation();
         void showErrorSendingMessage();
     }
-
 }

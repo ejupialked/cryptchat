@@ -8,11 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-
 public class LoadingKeyFragment extends DialogFragment {
-
-
 
     public static LoadingKeyFragment getInstance(){
         return new LoadingKeyFragment();
@@ -27,6 +23,4 @@ public class LoadingKeyFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.activity_publickey, container, false);
     }
-
-
 }

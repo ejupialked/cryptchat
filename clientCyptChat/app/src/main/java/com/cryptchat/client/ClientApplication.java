@@ -82,12 +82,10 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
         executeSend(CryptChatUtils.READY + CryptChatUtils.PROTOCOL_SEPARATOR + "ready");
     }
 
-
     public void connect(String ip, String port){
         Connect connect = new Connect();
         connect.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, ip, port);
     }
-
 
     @Override
     public void openDialogPublicKey() {
@@ -127,16 +125,12 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
     }
 
     @Override
-    public void sendError(String error) {
-
-    }
+    public void sendError(String error) { }
 
     @Override
     public void showPrivateKey(String s) {
         chatClient.showPrivateKey(s);
     }
-
-
 
 
     private void initStreams(Socket server) {
@@ -148,7 +142,6 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void closeConnection(){
@@ -160,10 +153,6 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
             e.printStackTrace();
         }
     }
-
-
-
-
 
 
     @SuppressLint("StaticFieldLeak")

@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 
 public class ConnectionFragment extends DialogFragment {
 
-
-
     public static ConnectionFragment getInstance(){
         return new ConnectionFragment();
     }

@@ -50,17 +50,13 @@ public class KeyExchange extends AsyncTask<byte[], Integer, String> {
         } catch (InvalidAlgorithmParameterException e) {
             e.printStackTrace();
         }
-
         return serverPublicKey;
-
     }
-
 
     //2
     public DHParameterSpec retrieveDHParamFromPB(PublicKey key){
         return ((DHPublicKey) key).getParams();
     }
-
 
     //3
     public void generateDHKeyPair(PublicKey serverPublicKey) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException {
@@ -70,26 +66,19 @@ public class KeyExchange extends AsyncTask<byte[], Integer, String> {
         keyPairGenerator.initialize(DHParam);
         keyPair = keyPairGenerator.generateKeyPair();
 
-
         this.publicKey = keyPair.getPublic();
         this.privateKey = keyPair.getPrivate();
-
-
-        System.err.println("Private: "+CryptChatUtils.encodeBase64(privateKey.getEncoded()));
-        System.err.println("Public: "+CryptChatUtils.encodeBase64(publicKey.getEncoded()));
 
         try {
             initDHKeyAgreement();
         } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
-
     }
 
 
     //4
     public void initDHKeyAgreement() throws NoSuchAlgorithmException, InvalidKeyException {
-
         this.privateKey = keyPair.getPrivate();
 
         keyAgreement = KeyAgreement.getInstance("DH");
@@ -99,17 +88,11 @@ public class KeyExchange extends AsyncTask<byte[], Integer, String> {
 
     public void doPhase(PublicKey publicKey) throws InvalidKeyException {
         keyAgreement.doPhase(publicKey, true);
-
-        System.err.println("client secret: " + Base64.encode(keyAgreement.generateSecret()));
-
     }
-
 
     public PublicKey getPublicKey() {
         return publicKey;
     }
-
-
 
     public SecretKeySpec getAESKey() {
         return CryptChatUtils.generateAESKey(commonSecret);
@@ -127,7 +110,7 @@ public class KeyExchange extends AsyncTask<byte[], Integer, String> {
 
         try {
             try {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -139,7 +122,7 @@ public class KeyExchange extends AsyncTask<byte[], Integer, String> {
            sender.sendPublicKey(getPublicKey());
 
             try {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 
 public class GenerateKeyFragment extends DialogFragment {
 
-
-
     public static GenerateKeyFragment getInstance(){
         return new GenerateKeyFragment();
     }
