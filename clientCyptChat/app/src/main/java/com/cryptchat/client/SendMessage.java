@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-class SendMessage extends AsyncTask<String, String, Void> {
+class SendMessage extends AsyncTask<String, String, Void>  {
 
     private ObjectOutputStream oos;
     private SendMessageResponse response;
@@ -21,7 +21,8 @@ class SendMessage extends AsyncTask<String, String, Void> {
 
         try {
             oos.writeUTF(message);
-            oos.reset();
+            oos.flush();
+            publishProgress(message);
         } catch (IOException e) {
             response.showErrorSendingMessage();
             e.printStackTrace();
@@ -36,6 +37,13 @@ class SendMessage extends AsyncTask<String, String, Void> {
     }
 
     @Override
+    protected void onProgressUpdate(String... values) {
+        super.onProgressUpdate(values);
+        System.err.println("Sent " + values[0]);
+
+    }
+
+    @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         response.showMessageSentConfirmation();
@@ -45,6 +53,8 @@ class SendMessage extends AsyncTask<String, String, Void> {
     public void setOos(ObjectOutputStream oos) {
         this.oos = oos;
     }
+
+
 
 
     public interface SendMessageResponse{
