@@ -19,23 +19,24 @@ import com.cryptchat.client.ui.fragments.LoadingKeyFragment;
 import com.cryptchat.client.R;
 
 
-public class ChatActivity extends AppCompatActivity implements ReceiveMessage.ReceiveMessageResponse,
+public class ChatResponseActivity extends AppCompatActivity implements
+        ReceiveMessage.ReceiveMessageResponse,
         SendMessage.SendMessageResponse,
-        ClientApplication.ClientChat {
+        ClientApplication.ChatResponse {
 
     ClientApplication clientApplication;
 
-    TextView txtMsg;
-    TextView txtKey;
-    TextView txtEncryptedMsg;
-    TextView txtReceivedMsg;
+    TextView txt_message;
+    TextView txt_key;
+    TextView txt_encrypted;
+    TextView txt_received;
 
-    ImageButton btnSend;
-    Button btnDecrypt;
-    Button btnEncrypt;
+    ImageButton btn_send;
+    Button btn_decrypt;
+    Button btn_encrypt;
 
-    DialogFragment pbk;
-    DialogFragment keypair;
+    DialogFragment generatePublicKeyDialog;
+    DialogFragment generateKeyPairDialog;
 
 
     @Override
@@ -45,25 +46,25 @@ public class ChatActivity extends AppCompatActivity implements ReceiveMessage.Re
 
         clientApplication = ((ClientApplication)getApplication());
 
-        txtMsg = findViewById(R.id.txtMsg);
-        txtKey= findViewById(R.id.txtKey);
-        txtEncryptedMsg = findViewById(R.id.txtEncryptedMsg);
-        txtReceivedMsg = findViewById(R.id.txtReceivedMsg);
-        txtReceivedMsg.setMovementMethod(new ScrollingMovementMethod());
+        txt_message = findViewById(R.id.txt_message);
+        txt_key= findViewById(R.id.txt_key);
+        txt_encrypted = findViewById(R.id.txt_encrypted);
 
-        btnEncrypt = findViewById(R.id.btnEncrypt);
-        btnSend = findViewById(R.id.btnSend);
-        btnDecrypt= findViewById(R.id.btnDecrypt);
+        txt_received = findViewById(R.id.txt_received);
+        txt_received.setMovementMethod(new ScrollingMovementMethod());
 
+        btn_encrypt = findViewById(R.id.btnEncrypt);
+        btn_send = findViewById(R.id.btnSend);
+        btn_decrypt = findViewById(R.id.btnDecrypt);
 
-
-        pbk = LoadingKeyFragment.getInstance();
-        keypair = GenerateKeyFragment.getInstance();
+        generatePublicKeyDialog = LoadingKeyFragment.getInstance();
+        generateKeyPairDialog = GenerateKeyFragment.getInstance();
 
         clientApplication.setReceiveMessageResponse(this);
         clientApplication.setSendMessageResponse(this);
         clientApplication.setChatClient(this);
         clientApplication.executeReceive();
+
 
         try {
             clientApplication.ready();
@@ -74,7 +75,7 @@ public class ChatActivity extends AppCompatActivity implements ReceiveMessage.Re
 
 
     public void send(View v){
-        String m = txtEncryptedMsg.getText().toString();
+        String m = txt_encrypted.getText().toString();
         try {
             clientApplication.sendMessage(m);
         } catch (Exception e) {
@@ -83,20 +84,20 @@ public class ChatActivity extends AppCompatActivity implements ReceiveMessage.Re
     }
 
     public void decrypt(View v){
-        String m = txtReceivedMsg.getText().toString();
+        String m = txt_received.getText().toString();
         try {
             String decrypted = clientApplication.decrypt(m);
-            txtReceivedMsg.setText(decrypted);
+            txt_received.setText(decrypted);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void encrypt(View v){
-        String m = txtMsg.getText().toString();
+        String m = txt_message.getText().toString();
         try {
             String encrypted = clientApplication.encrypt(m);
-            txtEncryptedMsg.setText(encrypted);
+            txt_encrypted.setText(encrypted);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -105,32 +106,32 @@ public class ChatActivity extends AppCompatActivity implements ReceiveMessage.Re
 
     @Override
     public void showPrivateKey(String s) {
-        txtKey.setText(s);
+        txt_key.setText(s);
     }
 
     @Override
     public void showMessageReceived(String s) {
-        txtReceivedMsg.setText(s);
+        txt_received.setText(s);
     }
 
     @Override
     public void openDialogKeyPair() {
-        keypair.show(getSupportFragmentManager(), "Loading key");
+        generateKeyPairDialog.show(getSupportFragmentManager(), "Loading key");
     }
 
     @Override
     public void closeDialogKeyPair() {
-        keypair.dismiss();
+        generateKeyPairDialog.dismiss();
     }
 
     @Override
     public void openDialogPublicKey() {
-        pbk.show(getSupportFragmentManager(), "Loading key");
+        generatePublicKeyDialog.show(getSupportFragmentManager(), "Loading key");
     }
 
     @Override
     public void closeDialogPublicKey() {
-        pbk.dismiss();
+        generatePublicKeyDialog.dismiss();
     }
 
     @Override
@@ -150,7 +151,7 @@ public class ChatActivity extends AppCompatActivity implements ReceiveMessage.Re
 
     @Override
     public void showEncryptedMessageReceived(String message) {
-        txtReceivedMsg.setText(message);
+        txt_received.setText(message);
     }
 
     @Override

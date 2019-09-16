@@ -22,7 +22,7 @@ public class ReceiveMessage extends AsyncTask<Void, String, String> {
     @Override
     protected String doInBackground(Void... voids) {
         while (isConnected){
-            String data = null;
+            String data;
             CryptChatUtils.delay(100);
 
             data = readMessage();
@@ -49,10 +49,6 @@ public class ReceiveMessage extends AsyncTask<Void, String, String> {
         }
     }
 
-
-
-
-
     @Override
     protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
@@ -62,7 +58,7 @@ public class ReceiveMessage extends AsyncTask<Void, String, String> {
     }
 
     private String readMessage(){
-        String message = "error";
+        String message = null;
 
         try {
             message = ois.readUTF();

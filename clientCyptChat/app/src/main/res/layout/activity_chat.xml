@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".ui.activity.ChatActivity">
+    tools:context=".ui.activity.ChatResponseActivity">
 
 
     <LinearLayout
@@ -28,7 +28,7 @@
             android:text="Common secret" />
 
         <EditText
-            android:id="@+id/txtKey"
+            android:id="@+id/txt_key"
             style="@style/editText_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             />
 
         <EditText
-            android:id="@+id/txtMsg"
+            android:id="@+id/txt_message"
             style="@style/editText_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             >
 
             <TextView
-                android:id="@+id/txtEncryptedMsg"
+                android:id="@+id/txt_encrypted"
                 style="@style/textview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -117,7 +117,7 @@
           >
 
           <TextView
-              android:id="@+id/txtReceivedMsg"
+              android:id="@+id/txt_received"
               style="@style/textview"
               android:scrollbars = "vertical"
               android:maxLines="3"
@@ -134,7 +134,7 @@
           <Button
               android:id="@+id/btnDecrypt"
               style="@style/button_style"
-              android:layout_toRightOf="@id/txtReceivedMsg"
+              android:layout_toRightOf="@id/txt_received"
               android:onClick="decrypt"
               android:text="Decrypt" />
       </LinearLayout>

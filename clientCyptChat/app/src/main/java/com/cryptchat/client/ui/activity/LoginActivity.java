@@ -13,7 +13,7 @@ import com.cryptchat.client.ClientApplication;
 import com.cryptchat.client.ui.fragments.ConnectionFragment;
 import com.cryptchat.client.R;
 
-public class MainActivity extends AppCompatActivity implements ClientApplication.ClientConnectionResponse {
+public class LoginActivity extends AppCompatActivity implements ClientApplication.LoginResponse {
 
     Button btnConnect;
     TextView txtIP;
@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         clientApplication = ((ClientApplication)getApplication());
-        clientApplication.setClientConnectionResponse(this);
+        clientApplication.setLoginResponse(this);
 
         btnConnect = findViewById(R.id.btnConnect);
         txtIP = findViewById(R.id.txt_ip);
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements ClientApplication
 
     @Override
     public void openChat() {
-        Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ChatResponseActivity.class);
         startActivity(intent);
     }
 

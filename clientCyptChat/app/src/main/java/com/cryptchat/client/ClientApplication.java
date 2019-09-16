@@ -22,18 +22,17 @@ import static com.cryptchat.client.utils.CryptChatUtils.PUBLIC_KEY;
 public class ClientApplication extends Application implements KeyExchange.SendKey {
 
     private boolean isConnected;
+
     private Socket socket;
     private ObjectInputStream ois;
     private ObjectOutputStream oos;
+
     private KeyExchange keyExchange;
-
     private ReceiveMessage receive;
-    private SendMessage send;
 
+    private ChatResponse chatClient;
 
-    private ClientApplication.ClientChat chatClient;
-
-    private ClientConnectionResponse clientConnectionResponse;
+    private LoginResponse loginResponse;
     private ReceiveMessage.ReceiveMessageResponse receiveMessageResponse;
     private SendMessage.SendMessageResponse sendMessageResponse;
 
@@ -59,11 +58,11 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
 
 
     public void executeSend(String message) throws Exception{
-
         if(message.isEmpty()){
             throw new Exception("You must enter a message.");
         }
 
+        SendMessage send;
         send = new SendMessage();
         send.setResponse(sendMessageResponse);
         send.setOos(oos);
@@ -117,13 +116,9 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
 
     @Override
     public void sendPublicKey(PublicKey publicKey) {
-
         byte[] encodedPublicKey = publicKey.getEncoded();
-
         String base64PublicKey = Base64.encode(encodedPublicKey);
-
         String formatPBK = PUBLIC_KEY + PROTOCOL_SEPARATOR + base64PublicKey;
-
         try {
             executeSend(formatPBK);
         } catch (Exception e) {
@@ -164,13 +159,10 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
 
     @SuppressLint("StaticFieldLeak")
     private class Connect extends AsyncTask<String, Void, Boolean> {
-
-
         @Override
         protected void onPreExecute() {
-
             super.onPreExecute();
-            clientConnectionResponse.openDialogConnection();
+            loginResponse.openDialogConnection();
         }
 
         @Override
@@ -182,15 +174,12 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
                 System.err.println("connecting");
                 socket = new Socket(ip, port);
                 isConnected = true;
-                try {
-                    Thread.sleep(7000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
+                CryptChatUtils.delay(5000);
                 initStreams(socket);
             } catch (IOException e) {
                 e.printStackTrace();
-                clientConnectionResponse.showErrorMessage(e.getMessage());
+                loginResponse.showErrorMessage(e.getMessage());
                 isConnected = false;
                 closeConnection();
                 return false;
@@ -202,8 +191,8 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
         protected void onPostExecute(Boolean connected) {
             super.onPostExecute(connected);
             if (connected) {
-                clientConnectionResponse.closeDialogConnection();
-                clientConnectionResponse.openChat();
+                loginResponse.closeDialogConnection();
+                loginResponse.openChat();
             }
         }
 
@@ -215,11 +204,11 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
     }
 
 
-    public void setClientConnectionResponse(ClientConnectionResponse clientConnectionResponse) {
-        this.clientConnectionResponse = clientConnectionResponse;
+    public void setLoginResponse(LoginResponse loginResponse) {
+        this.loginResponse = loginResponse;
     }
 
-    public void setChatClient(ClientApplication.ClientChat chatClient) {
+    public void setChatClient(ChatResponse chatClient) {
         this.chatClient = chatClient;
     }
 
@@ -233,10 +222,9 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
 
 
 
-    public interface ClientChat{
+    public interface ChatResponse {
         void showPrivateKey(String s);
         void showMessageReceived(String s);
-
 
         void openDialogKeyPair();
         void closeDialogKeyPair();
@@ -245,7 +233,7 @@ public class ClientApplication extends Application implements KeyExchange.SendKe
         void closeDialogPublicKey();
     }
 
-        public interface ClientConnectionResponse {
+        public interface LoginResponse {
         void openChat();
 
         void openDialogConnection();
