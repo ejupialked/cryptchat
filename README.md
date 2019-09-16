@@ -8,7 +8,7 @@ This personal project was created in my final year of high school in 2017. I pre
 
 ## Project Status
 
-This project is currently in development. 
+This project is currently in development. Currently I'm working on making the code more readable. If there are any issues let me know. 
 
 ## Screenshots
 ### Client
