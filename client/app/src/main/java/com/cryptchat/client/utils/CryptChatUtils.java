@@ -19,7 +19,7 @@ public class CryptChatUtils {
 
 
     public static String encodeBase64(byte[] data) {
-        return Base64.encode(data);
+        return com.cryptchat.client.utils.Base64.encode(data);
     }
 
     public static byte[] decodeBase64(String data) {
@@ -34,7 +34,7 @@ public class CryptChatUtils {
         System.out.println("im decrypting : " + Base64.encode(aesKey.getEncoded()));
 
 
-        byte[] decodedMessage = Base64.decode(encryptedMessage);
+        byte[] decodedMessage = com.cryptchat.client.utils.Base64.decode(encryptedMessage);
         byte[] recovered = cipher.doFinal(decodedMessage);
 
         return new String(recovered);

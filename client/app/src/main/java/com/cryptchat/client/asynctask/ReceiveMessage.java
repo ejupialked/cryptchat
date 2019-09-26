@@ -39,12 +39,12 @@ public class ReceiveMessage extends AsyncTask<Void, String, String> {
 
     private void performOperation(int c, String message) {
         if(c == CryptChatUtils.REQUEST_PUBLIC_KEY){
-            byte[] decodedPublicKey = Base64.decode(message);
+            byte[] decodedPublicKey = CryptChatUtils.decodeBase64(message);
             clientApplication.executeKeyExchange(decodedPublicKey);
         }else if(c == CryptChatUtils.ENCRYPTED_MESSAGE){
             publishProgress(message);
         }else if(c == CryptChatUtils.REQUEST_NEW_KEY){
-            byte[] decodedPublicKey = Base64.decode(message);
+            byte[] decodedPublicKey = CryptChatUtils.decodeBase64(message);
             clientApplication.executeKeyExchange(decodedPublicKey);
         }
     }

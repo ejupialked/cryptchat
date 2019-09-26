@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:maxLines="1"
+            android:editable="false"
             android:gravity="center"
             android:hint="Private key"
             android:imeOptions="actionDone"
