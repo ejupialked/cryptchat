@@ -76,7 +76,7 @@
         <dependency>
             <groupId>xerces</groupId>
             <artifactId>xercesImpl</artifactId>
-            <version>2.6.2-jaxb-1.0.6</version>
+            <version>2.12.0</version>
         </dependency>
 
 
