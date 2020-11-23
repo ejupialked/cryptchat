@@ -36,4 +36,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact
 
-Alked Ejupi - ejupialked@outlook.com
+Alked Ejupi - ejupialkeduk@gmail.com
