@@ -11,3 +11,9 @@
 /build
 /captures
 .externalNativeBuild
+.idea/
+.idea
+target/
+target
+.gradle/
+misc.xml
