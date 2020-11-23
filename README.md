@@ -13,9 +13,8 @@ Client             |  Server
 ## Motivation
 This personal project was created in my final year of high school in 2017. I presented this project during my final oral exam which was about Computer Security. After high school my coding skills have improved, that's why I decided to refactor the code making the chat more secure. 
 
-## Project Status
-
-This project is currently in development. Currently I'm working on making the code more readable and maintainable. If there are any issues let me know or open a pull request. Very soon I will upload a guide on how to run and clone this repo on your machine so that you can use it and learn.
+## How to run the project
+Simply use Intellij with Maven to run the server and Android studio with gradle for the client. The IDE will automatically detect the project.
 
 ## Screenshots
 ### Client
